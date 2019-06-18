@@ -21,9 +21,11 @@
 		box-shadow: 0px 0px 0px 0px white !important;
 		border-bottom: 1px solid orange !important;
 	}
+	
 	.mint {
 		color: #6ec4c1;
 	}
+	
 	.box {
 		display: inline-block;
 		width: 400px;
