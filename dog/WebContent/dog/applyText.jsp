@@ -6,12 +6,10 @@
 <title>펫시터.. 해보실래요..?</title>
 <link type="text/css" rel="stylesheet" href="../css/w3.css" />
 <link type="text/css" rel="stylesheet" href="../css/w3-colors-win8.css" />
+<link type="text/css" rel="stylesheet" href="../css/dog.css" />
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
-	html, body {
-		overflow: auto;
-	}
 	.main {
 		background-color: #fbfbfb;
 	}
@@ -22,13 +20,45 @@
 	}
 </style>
 <script type="text/javascript">
-
+	var id = '${SID}';
+	$(document).ready(function(){
+		if(!id) {
+			$('#log').text('로그인');
+			$('#log').attr('href', 'login.c3');
+			$('#nick').css('display', 'none');
+			$('#joining').css('display', 'visible');
+		} else {
+			$('#log').text('로그아웃');
+			$('#log').attr('href', 'logoutProc.c3');			
+			$('#nick').css('display', 'visible');
+			$('#joining').css('display', 'none');
+		}
+	});
 </script>
 </head>
 <body>
+	<!-- 상위 태그 -->
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-card" id="myNavbar">
+			<a href="welcome.jsp" class="w3-bar-item w3-button w3-wide no-uline"><img src="../img/logo.png" class="logo" style="height : 50px; margin-left : 15px;"></a>
+			<div class="w3-center w3-hide-small">
+				<a href="#" class="w3-bar-item w3-button w3-center no-uline tab">펫시터 집으로 부르기</a>
+				<a href="#" class="w3-bar-item w3-button no-uline tab">펫시터 집에 맡기기</a>
+				<a href="applyText.c3" class="w3-bar-item w3-button no-uline tab">자주하는질문</a>
+				<a href="#" class="w3-bar-item w3-button no-uline tab">펫시터지원</a>
+				<div class="w3-right w3-hide-small">
+					<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log">로그인</a>
+					<a href="#" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
+					<span id="nick">${SID} 님</span>
+		   		</div>
+	    	</div>
+	  	</div>
+	</div>
+
+	<!-- 몸체 태그 -->
 	<div class="w3-col m2"><p></p></div>
 	<div class="w3-col m8">
-		<header class="w3-display-container" id="home">
+		<div class="w3-display-container" id="home" style="margin-top: 80px;">
 	    	<img class="w3-image" src="../img/petsitter_01.jpg" width="100%;" height="auto">
 		    <div class="w3-margin-top w3-display-topmiddle w3-padding-large">
 		      	<h1 class="w3-text-gray w3-left w3-center" style="width: 100%; overflow: hidden;"><b>우리집에서 강아지 돌보고</b><br><b>부수입도 벌어보세요</b></h1>
@@ -40,8 +70,8 @@
 			      	</button>
 		      	</h6>
 	    	</div>
-		</header>
-		<div class="main">
+		</div>
+		<div class="main"">
 			<div class="w3-center">
 				<div style="height: 45px;"></div>
 				<h2 style="color: #6ec4c1;">집에 있는 시간이 많은<br><strong>전업주부, 프리랜서 우대</strong></h2>
@@ -105,10 +135,9 @@
 				<div style="display: inline-block; width: 688px; height: 430px; background: url(../img/petsitter_04.jpg) no-repeat; background-size: cover; background-origin: border-box;">
 					<div style="width: 100%; height: auto;">
 						<div style="height: 300px;"></div>
-						<button style="max-width: 230px; width: 100%; background-color: #fff; padding: 13px 12px; border: 3px solid #6ec4c1; box-shadow: 0 0 3px 0 rgba(115,192,175,.63); margin: 0px;">
+						<button style="max-width: 250px; width: 100%; background-color: #fff; padding: 13px 12px; border: 3px solid #6ec4c1; box-shadow: 0 0 3px 0 rgba(115,192,175,.63); margin: 0px;">
 							<div style="width: 100%; height: auto;">
 								<span style="font-weight: 700; font-size: 17px; color: #6ec4c1; padding: 0px; margin: 0px;">펫시터 지원자격 확인하기</span>
-					      		<div style="display: inline-block; width: 15px;"></div>
 					      		<i class="fa fa-angle-right"></i>
 							</div>
 						</button>
