@@ -18,6 +18,7 @@ import utils.*;
  * 			변경 이력 관리
  * 			2019.06.18		MemberDAO 클래스 제작		작성자 : 강찬규
  * 			2019.06.18		loginCnt 클래스 제작		작성자 : 강찬규
+ * 			2019.06.18		idCheck 클래스 제작			작성자 : 강찬규
  */
 public class MemberDAO {
 	CDBCP db = null;
@@ -46,6 +47,28 @@ public class MemberDAO {
 			cnt = rs.getInt("cnt");
 		} catch(Exception e) {
 			System.out.println("##### 로그인 처리 함수 DAO 에러");
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+
+	// 아이디 중복체크 함수
+	public int idCheck(String id) {
+		int cnt = 8;
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_ID_CHECK);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			cnt = rs.getInt("cnt");
+		} catch(Exception e) {
+			System.out.println("##### 아이디 중복체크 함수 DAO 에러");
 			e.printStackTrace();
 		} finally {
 			db.close(rs);
