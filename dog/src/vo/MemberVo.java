@@ -2,7 +2,6 @@ package vo;
 
 import java.sql.*;
 public class MemberVo {
-	
 	private String sid;
 	private String spw;
 	private String sname;
