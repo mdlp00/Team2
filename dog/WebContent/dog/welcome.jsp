@@ -40,7 +40,7 @@
 				<a href="applyText.c3" class="w3-bar-item w3-button no-uline tab">펫시터지원</a>
 				<div class="w3-right w3-hide-small">
 					<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log">로그인</a>
-					<a href="#" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
+					<a href="join.c3" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
 					<span id="nick">${SID} 님</span>
 		   		</div>
 	    	</div>
