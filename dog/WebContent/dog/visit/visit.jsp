@@ -15,10 +15,10 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btn1').click(function(){
-			$(location).attr('href', 'regular.c3');
+			$(location).attr('href', 'visit/regular.c3');
 		});
 		$('#btn2').click(function(){
-			$(location).attr('href', 'general.c3');
+			$(location).attr('href', 'visit/general.c3');
 		});
 	});
 </script>
