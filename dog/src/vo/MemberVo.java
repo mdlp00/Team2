@@ -47,4 +47,5 @@ public class MemberVo {
 	public void setSphone(String sphone) {
 		this.sphone = sphone;
 	}
+	
 }
