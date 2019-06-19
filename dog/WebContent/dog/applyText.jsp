@@ -39,7 +39,7 @@
 <body>
 	<!-- 상위 태그 -->
 	<div class="w3-top">
-		<div class="w3-bar w3-white w3-card" id="myNavbar">
+		<div class="w3-bar w3-white" id="myNavbar">
 			<a href="welcome.jsp" class="w3-bar-item w3-button w3-wide no-uline"><img src="../img/logo.png" class="logo" style="height : 50px; margin-left : 15px;"></a>
 			<div class="w3-center w3-hide-small">
 				<a href="#" class="w3-bar-item w3-button w3-center no-uline tab">펫시터 집으로 부르기</a>
@@ -71,7 +71,7 @@
 		      	</h6>
 	    	</div>
 		</div>
-		<div class="main"">
+		<div class="main">
 			<div class="w3-center">
 				<div style="height: 45px;"></div>
 				<h2 style="color: #6ec4c1;">집에 있는 시간이 많은<br><strong>전업주부, 프리랜서 우대</strong></h2>

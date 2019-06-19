@@ -1,0 +1,162 @@
+### 로그인 관련 요청 처리 ###
+
+1. 로그인 폼 요청
+	요청		:	/dog/login.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.LoginForm
+	뷰		:	/dog/login.jsp
+
+2. 로그인 처리 요청
+	요청		:	/dog/loginProc.c3
+	파라미터	:	id, pw
+	컨트롤러	:	controller.dog.LoginProc
+	뷰		:	/dog/welcome.jsp
+
+3. 로그아웃 처리 요청
+	요청		:	/dog/logoutProc.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.LogoutProc
+	뷰		:	/dog/welcome.jsp
+----------------------------------------------------------------
+### 회원정보 관련 요청 처리 ###
+
+1. 회원가입 폼 요청
+	요청		:	/dog/join.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.joinForm
+	뷰		:	/dog/join.jsp
+
+2. 회원가입 처리 요청
+	요청		:	/dog/joinProc.c3
+	파라미터	:	이름, 아이디, 비밀번호, 전화번호, 주소, 생년월일, 이메일, 개인정보확인질문
+	컨트롤러	:	controller.dog.JoinProc
+	뷰		:	/dog/login.jsp
+
+3. 회원정보 폼 요청
+	요청		:	/dog/myInfo.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.information.MyInfo
+	뷰		:	/dog/information/myInfo.jsp
+
+4. 회원정보 수정 폼 요청
+	요청		:	/dog/information/myInfoEdit.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.information.MyInfoEdit
+	뷰		:	/dog/information/myInfoEdit.jsp
+	
+5. 회원정보 수정처리 요청
+	요청		:	/dog/information/myInEditProc.c3
+	파라미터	:	[수정된] 비밀번호, 전화번호, 주소
+	컨트롤러	:	controller.dog.information.MyInEditProc
+	뷰		:	/dog/myInfo.c3
+
+[ 관리자 전용 페이지 ]
+6. 회원정보 리스트 폼 요청
+	요청		:	/dog/m.c3
+	파라미터	:	 
+	컨트롤러	:	controller.dog.M
+	뷰		:	/dog/m.jsp
+----------------------------------------------------------------
+### 반려견 관련 요청 처리 ###
+
+1. 반려견 정보등록 폼 요청
+	요청		:	/dog/information/dogJoin.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.information.DogJoin
+	뷰		:	/dog/information/dogJoin.jsp
+
+2. 반려견 정보등록 처리 요청
+	요청		:	/dog/information/dogJoinProc.c3
+	파라미터	:	동거여부, 사진, 이름, 성별, 품종, 무게, 나이, 중성화, 친화도, 짖음도, 지병, 배변훈련여부, 기타사항
+	컨트롤러	:	controller.dog.information.DogJoinProc
+	뷰		:	/dog/information/dogInfo.c3
+
+3. 반려견 정보 폼 요청
+	요청		:	/dog/information/dogInfo.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.information.DogInfo
+	뷰		:	/dog/information/dogInfo.jsp
+	
+4. 반려견 정보수정 폼 요청
+	요청		:	/dog/information/dogInfoEdit.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.information.DogInfoEdit
+	뷰		:	/dog/information/dogInfoEdit.jsp
+	
+5. 반려견 정보수정 처리 요청
+	요청		:	/dog/information/dogInEditProc.c3
+	파라미터	:	[수정된] 동거여부, 사진, 이름, 성별, 품종, 무게, 나이, 중성화, 친화도, 짖음도, 지병, 배변훈련여부, 기타사항
+	컨트롤러	:	controller.dog.information.DogInEditProc
+	뷰		:	/dog/information/dogInfo.c3
+----------------------------------------------------------------
+### 예약 관련 요청 처리 ###
+	
+1. 펫시터 집으로 부르기 폼 요청
+	요청		:	/dog/visit.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.visit.Visit
+	뷰		:	/dog/visit/visit.jsp
+
+2. 정기방문 폼 요청
+	요청		:	/dog/visit/regular.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.visit.Regular
+	뷰		:	/dog/visit/regular.jsp
+
+3. 일반방문 폼 요청
+	요청		:	/dog/visit/general.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.visit.General
+	뷰		:	/dog/visit/general.jsp
+
+4. 방문신청 처리 요청
+	요청		:	/dog/visit/visitProc.c3
+	파라미터	:	반려견이름, [정기]요일, [일반]날짜, 방문시간, 사전만남여부, 사전만남날짜, 사전만남시간, 요청사항, 결제수단
+	컨트롤러	:	controller.dog.visit.VisitProc
+	뷰		:	/dog/bookList.jsp
+
+5. 펫시터 집에 맡기기 폼 요청
+	요청		:	/dog/reserve/search.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.reserve.Search
+	뷰		:	/dog/reserve/search.jsp
+
+6. 펫시터 상세정보 폼 요청
+	요청		:	/dog/reserve/detail.c3
+	파라미터	:	펫시터 아이디
+	컨트롤러	:	controller.dog.reserve.Detail
+	뷰		:	/dog/reserve/detail.jsp
+
+7. 예약요청 폼 요청
+	요청		:	/dog/reserve/request.c3
+	파라미터	:	체크인 날짜시간, 체크아웃 날짜시간, 반려견 수, 시간초과여부, 무게초과여부, 펫시터 아이디
+	컨트롤러	:	controller.dog.reserve.Request
+	뷰		:	/dog/reserve/request.jsp
+
+8. 예약처리 요청
+	요청		:	/dog/reserve/reserveProc.c3
+	파라미터	:	체크인 날짜시간, 체크아웃 날짜시간, 반려견 수, 시간초과여부, 무게초과여부, 펫시터 아이디, 요청사항, 총금액, 결제수단
+	컨트롤러	:	controller.dog.reserve.ReserveProc
+	뷰		:	/dog/bookList.jsp
+----------------------------------------------------------------
+### 질의응답 관련 요청 처리 ###
+
+1. QnA 폼 요청
+	요청		:	/dog/support.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.Support
+	뷰		:	/dog/qna.jsp
+----------------------------------------------------------------
+### 펫시터지원 관련 요청 처리 ###
+
+1. 펫시터 지원설명 폼 요청
+	요청		:	/dog/applyText.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.ApplyText
+	뷰		:	/dog/applyText.jsp
+
+2. 펫시터 지원 폼 요청
+	요청		:	/dog/apply.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.Apply
+	뷰		:	/dog/apply.jsp
