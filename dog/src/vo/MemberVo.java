@@ -2,48 +2,70 @@ package vo;
 
 import java.sql.*;
 public class MemberVo {
-	private String sid;
-	private String spw;
-	private String sname;
-	private String sbirth;
-	private String sadd;
-	private String sphone;
+	private int  mno;
+	private String mid;
+	private String mpw;
+	private String mname;
+	private String mbirth;
+	private String maddr;
+	private String mtel;
+	private Date mDate;
+	private Time mTime;
 	
-	public String getSid() {
-		return sid;
+	
+	public int getMno() {
+		return mno;
 	}
-	public void setSid(String sid) {
-		this.sid = sid;
+	public void setMno(int mno) {
+		this.mno = mno;
 	}
-	public String getSpw() {
-		return spw;
+	public String getMid() {
+		return mid;
 	}
-	public void setSpw(String spw) {
-		this.spw = spw;
+	public void setMid(String mid) {
+		this.mid = mid;
 	}
-	public String getSname() {
-		return sname;
+	public String getMpw() {
+		return mpw;
 	}
-	public void setSname(String sname) {
-		this.sname = sname;
+	public void setMpw(String mpw) {
+		this.mpw = mpw;
 	}
-	public String getSbirth() {
-		return sbirth;
+	public String getMname() {
+		return mname;
 	}
-	public void setSbirth(String sbirth) {
-		this.sbirth = sbirth;
+	public void setMname(String mname) {
+		this.mname = mname;
 	}
-	public String getSadd() {
-		return sadd;
+	public String getMbirth() {
+		return mbirth;
 	}
-	public void setSadd(String sadd) {
-		this.sadd = sadd;
+	public void setMbirth(String mbirth) {
+		this.mbirth = mbirth;
 	}
-	public String getSphone() {
-		return sphone;
+	public String getMaddr() {
+		return maddr;
 	}
-	public void setSphone(String sphone) {
-		this.sphone = sphone;
+	public void setMaddr(String maddr) {
+		this.maddr = maddr;
+	}
+	public String getMtel() {
+		return mtel;
+	}
+	public void setMtel(String mtel) {
+		this.mtel = mtel;
+	}
+	public Date getmDate() {
+		return mDate;
+	}
+	public void setmDate(Date mDate) {
+		this.mDate = mDate;
+	}
+	public Time getmTime() {
+		return mTime;
+	}
+	public void setmTime(Time mTime) {
+		this.mTime = mTime;
 	}
 	
 }
