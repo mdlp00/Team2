@@ -20,6 +20,7 @@ import utils.*;
  * 			2019.06.18		MemberDAO 클래스 제작		작성자 : 강찬규
  * 			2019.06.18		loginCnt 클래스 제작		작성자 : 강찬규
  * 			2019.06.18		idCheck 클래스 제작			작성자 : 강찬규
+ * 			2019.06.19		idGetData 클래스 제작		작성자 : 강찬규
  */
 public class MemberDAO {
 	CDBCP db = null;
@@ -77,5 +78,31 @@ public class MemberDAO {
 			db.close(con);
 		}
 		return cnt;
+	}
+	
+	// 아이디로 회원정보 가져오는 함수
+	public MemberVo idGetData(String id) {
+		MemberVo vo = new MemberVo();
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_MEMB_INFO);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			vo.setMaddr(rs.getString("m_addr"));
+			vo.setMname(rs.getString("m_name"));
+			vo.setMbirth(rs.getString("m_birth"));
+			vo.setMtel(rs.getString("m_tel"));
+		} catch(Exception e) {
+			System.out.println("##### 아이디로 회원정보 가져오는 함수 DAO 에러");
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return vo;
 	}
 }
