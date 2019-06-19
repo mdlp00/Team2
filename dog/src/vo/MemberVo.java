@@ -10,7 +10,6 @@ public class MemberVo {
 	private String sadd;
 	private String sphone;
 	
-	
 	public String getSid() {
 		return sid;
 	}
