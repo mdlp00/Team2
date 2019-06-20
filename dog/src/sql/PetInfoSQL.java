@@ -24,12 +24,8 @@ public class PetInfoSQL {
 			buff.append("	PETINFO(PIF_NO, PIF_NAME, PA_NO, PS_NO, PK_NO, M_ID) ");
 			buff.append("VALUES ");
 			buff.append("	( ");
-			buff.append("	(SELECT NVL(MAX(PIF_NO),0)+1 FROM PETINFO), ");
-			buff.append("	?, ");
-			buff.append("	?, ");
-			buff.append("	?, ");
-			buff.append("	?, ");
-			buff.append("	? ");
+			buff.append("	(SELECT NVL(MAX(PIF_NO), 0)+1 FROM PETINFO), ");
+			buff.append("	?, ?, ?, ?, ? ");
 			buff.append("	) ");
 			break;
 		case SELECT_PET:

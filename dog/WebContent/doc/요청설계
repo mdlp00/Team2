@@ -30,7 +30,7 @@
 	요청		:	/dog/joinProc.c3
 	파라미터	:	이름, 아이디, 비밀번호, 전화번호, 주소, 생년월일, 이메일, 개인정보확인질문
 	컨트롤러	:	controller.dog.JoinProc
-	뷰		:	/dog/login.jsp
+	뷰		:	/dog/welcome.jsp
 
 3. 아이디 중복체크 처리 요청
 	요청		:	/member/idcheck.ck
