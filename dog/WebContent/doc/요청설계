@@ -32,24 +32,29 @@
 	컨트롤러	:	controller.dog.JoinProc
 	뷰		:	/dog/login.jsp
 
-3. 회원정보 폼 요청
+3. 아이디 중복체크처리요청
+	요청 : /member/idcheck.ck
+	마라미터 : id
+	컨트롤러 : controller.dog.IDCheck
+	뷰 : 필요없음(JSON 데이터)
+	
+4. 회원정보 폼 요청
 	요청		:	/dog/myInfo.c3
 	파라미터	:	없음
 	컨트롤러	:	controller.dog.information.MyInfo
 	뷰		:	/dog/information/myInfo.jsp
 
-4. 회원정보 수정 폼 요청
+5. 회원정보 수정 폼 요청
 	요청		:	/dog/information/myInfoEdit.c3
 	파라미터	:	없음
 	컨트롤러	:	controller.dog.information.MyInfoEdit
 	뷰		:	/dog/information/myInfoEdit.jsp
 	
-5. 회원정보 수정처리 요청
+6. 회원정보 수정처리 요청
 	요청		:	/dog/information/myInEditProc.c3
 	파라미터	:	[수정된] 비밀번호, 전화번호, 주소
 	컨트롤러	:	controller.dog.information.MyInEditProc
 	뷰		:	/dog/myInfo.c3
-
 [ 관리자 전용 페이지 ]
 6. 회원정보 리스트 폼 요청
 	요청		:	/dog/m.c3
