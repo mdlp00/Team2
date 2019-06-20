@@ -15,6 +15,7 @@ package sql;
  * 			2019.06.19		SEL_MEMB_INFO			작성자 : 강찬규
  * 			2019.06.20 		INSERT_MEMBER(수정)		작성자 : 안다예
  * 			2019.06.20		SEL_ID_MAIL				작성자 : 강찬규
+ * 			2019.06.20		UPDATE_RAND_PW			작성자 : 양희준
  * 
  */
 public class MemberSQL {
@@ -24,6 +25,8 @@ public class MemberSQL {
 	public final int SEL_ID_MAIL = 1004;
 	
 	public final int INSERT_MEMBER = 2001;
+	
+	public final int UPDATE_RAND_PW = 3001;
 	
 	public String getSQL(int code) {
 		StringBuffer buff = new StringBuffer();
@@ -71,6 +74,13 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	m_id = ? ");
 			break;
+		case UPDATE_RAND_PW:
+			buff.append("UPDATE ");
+			buff.append("member ");
+			buff.append("SET ");
+			buff.append("m_pw = ? ");
+			buff.append("WHERE ");
+			buff.append("m_id = ?");
 		}
 		return buff.toString();
 	}

@@ -24,6 +24,7 @@ import utils.*;
  * 			2019.06.19		idCheck 클래스 수정			작성자 : 안다예
  * 			2019.06.19		addMemb 클래스 제작			작성자 : 안다예
  * 			2019.06.20		mailCheck 클래스 제작		작성자 : 강찬규
+ * 			2019.06.20		randpwUpdate 클래스 제작	작성자 : 양희준
  */
 public class MemberDAO {
 	CDBCP db = null;
@@ -169,6 +170,28 @@ public class MemberDAO {
 		} else {
 			// 실패한 경우
 			cnt = 1;
+		}
+		return cnt;
+	}
+	
+	// 임시비밀번호 변경
+	public int randpwUpdate(String rpw, String id) {
+		int cnt = 0;
+		
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.UPDATE_RAND_PW);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			pstmt.setString(1, rpw);
+			pstmt.setString(2, id);
+			
+			cnt = pstmt.executeUpdate();
+		}catch (Exception e) {
+			// TODO: handle exception
+		}finally {
+			db.close(pstmt);
+			db.close(con);
 		}
 		return cnt;
 	}
