@@ -14,6 +14,7 @@ package vo;
 
 public class PetInfoVo {
 	private String m_id;
+	private String p_name;
 	private int ps_no;
 	private int pa_no;
 	private int pk_no;
@@ -41,6 +42,12 @@ public class PetInfoVo {
 	}
 	public void setPk_no(int pk_no) {
 		this.pk_no = pk_no;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
 	}
 	
 	
