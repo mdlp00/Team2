@@ -39,10 +39,12 @@
 				<a href="#" class="w3-bar-item w3-button no-uline tab">자주하는질문</a>
 				<a href="applyText.c3" class="w3-bar-item w3-button no-uline tab">펫시터지원</a>
 				<div class="w3-right w3-hide-small">
-					<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log">로그인</a>
-					<a href="join.c3" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
-					<span id="nick">${SID} 님</span>
-		   		</div>
+					<div style="text-align: left;">
+						<a id="nick" class="w3-bar-item w3-button no-uline tab">${SID} 님</a>
+						<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log" style="margin: 13px 0px 0px;">로그인</a>
+						<a href="join.c3" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
+					</div>
+				</div>
 	    	</div>
 	  	</div>
 	</div>

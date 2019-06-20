@@ -23,7 +23,7 @@
 	});
 </script>
 </head>
-<body style="background-color: #fbfbfb;">
+<body>
 	<!-- 상위 태그 -->
 	<div class="w3-top" style="width: 100%; background-color: #fff; border-bottom: 1px solid #e6e6e6; z-index: 3;">
 		<div class="w3-bar w3-white">
@@ -40,7 +40,7 @@
 	</div>
 	
 	<!-- 몸통 태그 -->
-	<div style="margin: 80px 15px 0px;">
+	<div style="margin: 80px 200px 0px; background-color: #fbfbfb;">
 		<div>
 			<div style="height: 45px;"></div>
 			<h4 style="text-align: center; color: #6f6f6f; padding: 0px; margin: 0px;">원하시는 방문 유형을<br>선택해주세요</h4>
@@ -60,11 +60,11 @@
 			<div style="height: 45px;"></div>
 			<div class="w3-center">
 				<i class="fa fa-flag-o" style="margin-right: 5px;"></i>
-				<span style="color: #6f6f6f;">정기 방문 돌봄 신청</span>
+				<span style="color: #6f6f6f;">일반 방문 돌봄 신청</span>
 			</div>
 			<div style="height: 10px;"></div>
 			<div class="w3-center">
-				<span style="color: #6f6f6f;">여행 및 출장 등의 이유로 단기 방문 돌봄을 신청하는 서비스로 5회 이상 예약 시 10% 할인된 가격으로 이용하실 수 있습니다.</span>
+				<span style="color: #6f6f6f;">여행 및 출장 등의 이유로 단기 방문 돌봄을 신청하는 서비스입니다.</span>
 			</div>
 		</div>
 	</div>
