@@ -34,16 +34,18 @@
 		<div class="w3-bar w3-white w3-card" id="myNavbar">
 			<a href="welcome.jsp" class="w3-bar-item w3-button w3-wide no-uline"><img src="../img/logo.png" class="logo"></a>
 			<div class="w3-center w3-hide-small">
-				<a href="#" class="w3-bar-item w3-button w3-center no-uline tab">펫시터 집으로 부르기</a>
+				<a href="visit.c3" class="w3-bar-item w3-button w3-center no-uline tab">펫시터 집으로 부르기</a>
 				<a href="#" class="w3-bar-item w3-button no-uline tab">펫시터 집에 맡기기</a>
 				<a href="#" class="w3-bar-item w3-button no-uline tab">자주하는질문</a>
 				<a href="applyText.c3" class="w3-bar-item w3-button no-uline tab">펫시터지원</a>
-				<a href="information/dogJoin.c3" class="w3-bar-item w3-button no-uline tab">펫시터등록</a>
+				<a href="information/dogJoin.c3" class="w3-bar-item w3-button no-uline tab">펫 등록</a>
 				<div class="w3-right w3-hide-small">
-					<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log">로그인</a>
-					<a href="join.c3" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
-					<span id="nick">${SID} 님</span>
-		   		</div>
+					<div style="text-align: left;">
+						<a id="nick" class="w3-bar-item w3-button no-uline tab">${SID} 님</a>
+						<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log" style="margin: 13px 0px 0px;">로그인</a>
+						<a href="join.c3" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
+					</div>
+				</div>
 	    	</div>
 	  	</div>
 	</div>
