@@ -14,12 +14,14 @@ package sql;
  * 			2019.06.18		INSERT_MEMBER			작성자 : 강찬규
  * 			2019.06.19		SEL_MEMB_INFO			작성자 : 강찬규
  * 			2019.06.20 		INSERT_MEMBER(수정)		작성자 : 안다예
+ * 			2019.06.20		SEL_ID_MAIL				작성자 : 강찬규
  * 
  */
 public class MemberSQL {
 	public final int SEL_MEMB_CNT = 1001;
 	public final int SEL_ID_CHECK = 1002;
 	public final int SEL_MEMB_INFO = 1003;
+	public final int SEL_ID_MAIL = 1004;
 	
 	public final int INSERT_MEMBER = 2001;
 	
@@ -61,8 +63,14 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("	m_id = ? ");
 			break;
-			
-		
+		case SEL_ID_MAIL:
+			buff.append("SELECT ");
+			buff.append("	m_mail mail ");
+			buff.append("FROM ");
+			buff.append("	member ");
+			buff.append("WHERE ");
+			buff.append("	m_id = ? ");
+			break;
 		}
 		return buff.toString();
 	}

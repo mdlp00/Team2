@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>Password ReNew</title>
 <link type="text/css" rel="stylesheet" href="../css/w3.css" />
 <link type="text/css" rel="stylesheet" href="../css/w3-colors-win8.css" />
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -29,13 +29,13 @@
 		width: 400px;
 		height: 640px;
 	}
-	.pw_renew {
+	.goBack {
 		border: none;
 		display: inline-block;
 		padding: 4px 8px;
 		overflow: hidden;
 	}
-	.pw_renew:hover {
+	.goBack:hover {
 		background-color: #6ec4c1;
 		color: white;
 	}
@@ -55,12 +55,37 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#btn').click(function(){
-			$('#frm').attr('action', 'loginProc.c3');
-			$('#frm').submit();
+			var sid = $('#id').val();
+			var smail = $('#mail').val();
+			
+			$.ajax({
+				url : "./pwrenew.ck",
+				type: "POST",
+				dataType: "json",
+				data: {
+					"id" : sid,
+					"mail" : smail
+				},
+				success: function(data){
+					if(data.cnt == 0){
+						alert("입력하신 메일로 임시 비밀번호를 발송했습니다.");
+						$('#frm').attr('action', '#');
+						$('#frm').submit();
+					} else {
+						alert("입력하신 메일이 아이디에 등록된 메일과 일치하지 않습니다.\r\n다시 입력하여 주십시오.");
+						$('#mail').val('');
+						$('#mail').focus();
+					}
+				},
+				error: function(){
+					alert("처리 에러");
+					return;
+				}
+			});
 		});
 		
-		$('#pw_renew').click(function(){
-			$(location).attr('href', 'passwordRenew.c3');
+		$('#goBack').click(function(){
+			$(location).attr('href', 'login.c3');
 		});
 	});
 </script>
@@ -74,7 +99,8 @@
 					<form method="POST" action="#" name="frm" id="frm">
 						<div class="w3-row w3-margin">
 							<div style="display: inline-block; width: 15px;"></div>
-							<span class="mint" style="font-size: 13pt;">로그인 정보를 입력해주세요</span>
+							<div class="mint" style="font-size: 13pt; text-align: center;">회원 가입시 작성한 이메일로</div>
+							<div class="mint" style="font-size: 13pt; text-align: center;">임시 비밀번호를 보내드립니다.</div>
 						</div>
 						<div><p></p></div>
 						<div class="w3-row w3-margin">
@@ -88,20 +114,20 @@
 						<div class="w3-row w3-margin">
 							<div style="display: inline-block; width: 15px;"></div>
 							<div style="display: inline-block;">
-								<div style="color: gray;">비밀번호</div>
-								<input type="password" class="inp" id="pw" name="pw" />
+								<div style="color: gray;">이메일</div>
+								<input type="text" class="inp" id="mail" name="mail" />
 							</div>
 						</div>
-						<div><p></p></div>
-						<div class="w3-row w3-center w3-margin">
-							<div style="display: inline-block; width: 15px;"></div>
-							<button id="btn" name="btn"><span>로그인</span></button>
-						</div>
-						<div><p></p></div>
 					</form>
+					<div><p></p></div>
+					<div class="w3-row w3-center w3-margin">
+						<div style="display: inline-block; width: 15px;"></div>
+						<button id="btn" name="btn"><span>확인</span></button>
+					</div>
+					<div><p></p></div>
 					<div class="w3-row w3-center w3-margin mint">
-						<div class="pw_renew" id="pw_renew">
-							<i class="fa fa-unlock-alt"></i><span style="margin-left: 10px;">비밀번호 재설정</span>
+						<div class="goBack" id="goBack">
+							<i class="fa fa-mail-reply"></i><span style="margin-left: 10px;">기억났어요! 돌아갈게요!</span>
 						</div>
 					</div>
 				</div>

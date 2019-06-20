@@ -23,6 +23,7 @@ import utils.*;
  * 			2019.06.19		idGetData 클래스 제작		작성자 : 강찬규
  * 			2019.06.19		idCheck 클래스 수정			작성자 : 안다예
  * 			2019.06.19		addMemb 클래스 제작			작성자 : 안다예
+ * 			2019.06.20		mailCheck 클래스 제작		작성자 : 강찬규
  */
 public class MemberDAO {
 	CDBCP db = null;
@@ -127,8 +128,7 @@ public class MemberDAO {
 			pstmt.setString(6, vo.getMtel());
 			//질의 명령 보내고 결과받기
 			int cnt = pstmt.executeUpdate();
-			System.out.println("dao : "+ cnt);
-			if(cnt == 0 ) {
+			if(cnt == 0) {
 				vo.setMno(-1);
 			} else {
 				//회원가입 성공 -> 회원번호 다시가져옴
@@ -143,4 +143,33 @@ public class MemberDAO {
 		return vo;
 	}
 	
+	// 아이디로 메일 체크 함수
+	public int mailCheck(String id, String mail) {
+		int cnt = 8;
+		String smail = "";
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.SEL_ID_MAIL);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			rs.next();
+			smail = rs.getString("mail");
+		} catch(Exception e) {
+			System.out.println("##### 아이디로 메일 체크 함수 DAO 에러");
+			e.printStackTrace();
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		if(mail.equals(smail)) {
+			// 성공한 경우
+			cnt = 0;
+		} else {
+			// 실패한 경우
+			cnt = 1;
+		}
+		return cnt;
+	}
 }

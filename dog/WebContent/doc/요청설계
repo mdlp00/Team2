@@ -17,6 +17,12 @@
 	파라미터	:	없음
 	컨트롤러	:	controller.dog.LogoutProc
 	뷰		:	/dog/welcome.jsp
+	
+4. 비밀번호 재설정 폼  요청
+	요청		:	/dog/passwordRenew.c3
+	파라미터	:	없음
+	컨트롤러	:	controller.dog.PasswordRenew
+	뷰		:	/dog/pwRenew.jsp
 ----------------------------------------------------------------
 ### 회원정보 관련 요청 처리 ###
 
