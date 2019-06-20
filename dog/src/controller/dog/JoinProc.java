@@ -1,8 +1,13 @@
 package controller.dog;
-
-// 날짜 : 2019/06/19
-// 작성자 : 안다예
-
+/**
+ * @author	안다예
+ * @since	2019.06.19
+ * @version	1.0
+ * @see
+ * 			변경 이력 관리
+ * 			2019.06.19		JoinProc 클래스 제작		작성자 : 안다예
+ * 			2019.06.20		JoinProc 클래스 살짝 수정		작성자 : 강찬규
+ */
 import javax.servlet.http.*;
 
 import com.oreilly.servlet.MultipartRequest;
@@ -55,6 +60,7 @@ public class JoinProc implements MainController {
 			view = "./join.c3";
 		}else {
 			//회원가입 성공시
+			req.setAttribute("isRDR", 1);
 			HttpSession session = req.getSession();
 			session.setAttribute("MID", vo.getMid());
 			view ="./welcome.jsp";	
