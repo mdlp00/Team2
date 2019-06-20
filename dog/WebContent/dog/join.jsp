@@ -16,7 +16,7 @@
 	}
 	.box {
 		background-color : #86d6d4;
-		padding : 58px 0px 0px;
+		padding : 30px 0px 30px;
 		text-align: left;
 	}
 	.color1 {
@@ -41,30 +41,30 @@
 <script type="text/javascript">
 	var idck = false;
 	$(document).ready(function(){
-		
-		$('#join').click(function(){
-			$('#frm').attr('action', 'joinProc.c3');
+		// 취소 버튼 클릭
+		$('#reset').click(function(){
+			$(location).attr('href', 'welcome.jsp');
 		});
 		
 		$('pw').focusout(function(){
 			var spw = $('#pw').val();
-			var re1 = /^[a-z A-Z 0-9]{4-10}$/;
+			var re = /^[a-z A-Z 0-9]{4-10}$/;
 			// 정규식 검사
-			if(!(re1.test(spw))){
-				alert('비밀번호 입력형식에 맞지 않습니다');
+			if(!(re.test(spw))){
+				alert('비밀번호는 영어 대소문자, 숫자의 조합으로 4~10 글자이어야 합니다.');
 				return;
 			}
 			$('#repw2').stop().fadeIn();
 			$('#repw').stop().fadeIn();
 		});
 		
-		//pw검사
+		// pw검사
 		$('#repw').focusout(function(){
 			var spws = $('#pw').val();
 			var srepw = $('#repw').val();
 			// 정규식 검사
 			if(!(spws == srepw)){
-				alert('입력한 비밀번호가 다릅니다. 다시입력해주세요');
+				alert('입력한 비밀번호가 다릅니다. 다시 입력해주세요.');
 				return;
 			}
 			$('#repw2').stop().fadeOut();
@@ -91,7 +91,7 @@
 					if(data.cnt == 0){
 						idck = true;
 						alert("[ "+ mid +" ] 는 사용 가능 합니다.");
-					} else{
+					} else {
 							alert("[ "+ mid+ " ] 아이디는 사용할 수 없습니다.");
 							$('#id').val('');
 							$('#id').focus();
@@ -102,18 +102,8 @@
 				}
 			});
 		});
-		
-		$('#name').click(function(){
-			var mname = $('#name').val();
-			var re = /^[가-힣]{2,6}$/;
-			// 정규식 검사
-			if(!(re.test(mname))){
-				alert('이름이 형식에 맞지 않습니다.');
-				return;
-			}
-			alert('사용가능합니다.')
-		});
 
+		// 회원가입 버튼 클릭
 		$('#join').click(function(){
 			// 검사하기
 			var mid = $('#id').val();
@@ -129,7 +119,7 @@
 			}
 			// 아이디 체크 여부 확인
 			if(!idck){
-				alert('아이디 사용가능 여부 체크하세요')
+				alert('아이디 사용가능 여부 체크하세요.')
 				return;
 			}
 			// 전화번호 정규식 검사
@@ -139,7 +129,7 @@
 				return;
 			}
 			
-			('#frm').submit();
+			$('#frm').submit();
 		});
 	});
 </script>
@@ -182,9 +172,9 @@
 				<label class="b2">연락처 입력  :</label>
 				<input class="w3-border it" id="tel" name="tel" type="text" placeholder="연락처 입력">
 			</div>
+		</form>
 			<button class="w3-button w3-section w3-ripple" style="background-color: #86d6d4; color: white; width: 95px;" id="join">회원가입</button>
 			<button class="w3-button w3-section w3-ripple" style="background-color: #86d6d4; color: white; width: 95px;" id="reset">취소</button>
-		</form>
 	</div>
 	<div class="w3-col m3"><p></p></div>
 </body>
