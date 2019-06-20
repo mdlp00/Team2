@@ -23,7 +23,7 @@ public class JoinProc implements MainController {
 		String mpw="";
 		String mname="";
 		String mbirth="";
-		String maddr="";
+		String maddr=""; 
 		String mtel="";
 		
 		mid = req.getParameter("id");
