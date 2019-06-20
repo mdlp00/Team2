@@ -40,7 +40,8 @@
 				alert('안내 내용을 다 읽으셔야 다음 단계로 진행이 가능합니다.');
 				return;
 			}
-			$(location).attr('href', 'general_1.jsp');
+			$('#frm').attr('action', 'general_1.c3');
+			$('#frm').submit();
 		});
 	});
 </script>
@@ -70,7 +71,7 @@
 				<div style="height: 45px;"></div>
 				<label style="width: 100%; text-align: left;">
 					<span style="width: 100%; height: 25px;">
-						<i class="w3-xlarge fa fa-check-circle-o" style="color: #6f6f6f; margin-right: 5px;" id="check1"></i><input type="checkbox" id="pet_name1" name="pet_name1" style="display: none;" value="1">
+						<i class="w3-xlarge fa fa-check-circle-o" style="color: #6f6f6f; margin-right: 5px;" id="check1"></i><input type="checkbox" id="pif_name" name="pif_name" style="display: none;" value="happy">
 						<span style="color: #6f6f6f;">반려견 이름(반려견 / 생년월 / 무게)</span>
 					</span>
 				</label>

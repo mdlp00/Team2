@@ -32,11 +32,11 @@
 	컨트롤러	:	controller.dog.JoinProc
 	뷰		:	/dog/login.jsp
 
-3. 아이디 중복체크처리요청
-	요청 : /member/idcheck.ck
-	마라미터 : id
-	컨트롤러 : controller.dog.IDCheck
-	뷰 : 필요없음(JSON 데이터)
+3. 아이디 중복체크 처리 요청
+	요청		:	/member/idcheck.ck
+	파라미터 	:	id
+	컨트롤러	:	controller.dog.IDCheck
+	뷰		:	필요없음(JSON 데이터)
 	
 4. 회원정보 폼 요청
 	요청		:	/dog/myInfo.c3
@@ -55,8 +55,9 @@
 	파라미터	:	[수정된] 비밀번호, 전화번호, 주소
 	컨트롤러	:	controller.dog.information.MyInEditProc
 	뷰		:	/dog/myInfo.c3
+	
 [ 관리자 전용 페이지 ]
-6. 회원정보 리스트 폼 요청
+7. 회원정보 리스트 폼 요청
 	요청		:	/dog/m.c3
 	파라미터	:	 
 	컨트롤러	:	controller.dog.M
@@ -108,15 +109,33 @@
 	컨트롤러	:	controller.dog.visit.Regular
 	뷰		:	/dog/visit/regular.jsp
 
-3. 일반방문 폼 요청
+3. 일반방문 폼 요청(반려동물 선택, 안내사항)
 	요청		:	/dog/visit/general.c3
-	파라미터	:	없음
+	파라미터	:	id
 	컨트롤러	:	controller.dog.visit.General
 	뷰		:	/dog/visit/general.jsp
 
+3-1. 일반방문 폼 요청(날짜, 시간)
+	요청		:	/dog/visit/general_1.c3
+	파라미터	:	반려견이름
+	컨트롤러	:	controller.dog.visit.General_1
+	뷰		:	/dog/visit/general_1.jsp
+
+3-2. 일반방문 폼 요청(요청 사항)
+	요청		:	/dog/visit/general_2.c3
+	파라미터	:	반려견이름, 방문날짜, 방문시작시간, 방문종료시간
+	컨트롤러	:	controller.dog.visit.General_2
+	뷰		:	/dog/visit/general_2.jsp
+
+3-3. 일반방문 폼 요청(결재 수단)
+	요청		:	/dog/visit/general_3.c3
+	파라미터	:	반려견이름, 방문날짜, 방문시작시간, 방문종료시간, 요청사항
+	컨트롤러	:	controller.dog.visit.General_3
+	뷰		:	/dog/visit/general_3.jsp
+
 4. 방문신청 처리 요청
 	요청		:	/dog/visit/visitProc.c3
-	파라미터	:	반려견이름, [정기]요일, [일반]날짜, 방문시간, 사전만남여부, 사전만남날짜, 사전만남시간, 요청사항, 결제수단
+	파라미터	:	반려견이름, [정기]요일, [일반]날짜, 방문시간, [정기]사전만남여부, [정기]사전만남날짜, [정기]사전만남시간, 요청사항, 결제수단
 	컨트롤러	:	controller.dog.visit.VisitProc
 	뷰		:	/dog/bookList.jsp
 
