@@ -1,5 +1,17 @@
 package vo;
 
+/**
+ * 이 클래스는 펫에 대한 정보를 담는 클래스이다.
+ * 
+ * @author	양희준
+ * @since	2019.06.20
+ * @version	1.0
+ * @see
+ * 			변경 이력 관리
+ * 			2019.06.20		PetInfoVo 클래스 제작		작성자 : 양희준
+ * 
+ */
+
 public class PetInfoVo {
 	private String m_id;
 	private int ps_no;

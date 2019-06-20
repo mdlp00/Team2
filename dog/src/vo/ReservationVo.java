@@ -1,18 +1,31 @@
 package vo;
 
+/**
+ * 이 클래스는 예약정보에 대한 정보를 담는 클래스이다.
+ * 
+ * @author	양희준
+ * @since	2019.06.20
+ * @version	1.0
+ * @see
+ * 			변경 이력 관리
+ * 			2019.06.20		ReservationVo 클래스 제작		작성자 : 양희준
+ * 
+ */
+
+
 import java.sql.Date;
 import java.sql.Time;
 
 public class ReservationVo {
-	private int pi_no;
-	private int ser_no;
-	private int pst_no;
-	private int lo_no;
-	private char ispay;
-	private Date r_Dstart;
-	private Time r_Tstart;
-	private Date r_Dend;
-	private Time r_Tend;
+	private int pi_no; // 반려견 번호
+	private int ser_no; // 서비스종류 번호
+	private int pst_no; // 펫시터등급 번호
+	private int lo_no; // 지역 번호
+	private char ispay; // 마리수
+	private Date r_Dstart; // 시작날짜
+	private Time r_Tstart; // 시작시간
+	private Date r_Dend; // 끝날짜
+	private Time r_Tend; // 끝시간
 	
 	public int getPi_no() {
 		return pi_no;
