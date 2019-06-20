@@ -22,7 +22,7 @@ public class LoginProc implements MainController {
 		int cnt = mdao.loginCnt(sid, spw);
 		if(cnt == 1) {
 			// 성공
-			view = "main.jsp";
+			view = "welcome.jsp";
 			HttpSession session = req.getSession();
 			session.setAttribute("SID", sid);
 		} else {
