@@ -38,7 +38,7 @@ public class PetInfoDAO {
 	
 
 	// 회원 정보 가입 함수
-	public PetInfoVo addPetInfo(PetInfoVo vo) {
+	public int addPetInfo(PetInfoVo vo) {
 		//회원정보 vo클래스에 있는 상태로 전달받음 -> 데이터 꺼내 회원정보 데이터 베이스에 추가하는 기능을 가진 함수
 		//커넥션준비
 		con = db.getCon();
@@ -47,6 +47,7 @@ public class PetInfoDAO {
 		//PreparedStatement 가져오기
 		pstmt = db.getPSTMT(con, sql);
 		//질의명령완성하기
+		int cnt = 9;
 		try {
 			pstmt.setString(1, vo.getP_name());
 			pstmt.setInt(2, vo.getPa_no());
@@ -54,15 +55,14 @@ public class PetInfoDAO {
 			pstmt.setInt(4, vo.getPk_no());
 			pstmt.setString(5, vo.getM_id());
 			//질의 명령 보내고 결과받기
-			int cnt = pstmt.executeUpdate();
-			System.out.println("cnt : "+ cnt);
+			cnt = pstmt.executeUpdate();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			db.close(pstmt);
 			db.close(con);
 		}
-		return vo;
+		return cnt;
 	}
 	
 }
