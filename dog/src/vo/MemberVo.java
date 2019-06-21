@@ -10,8 +10,8 @@ import java.sql.*;
  * @version	1.0
  * @see
  * 			변경 이력 관리
- * 			2019.06.18		MemberVo 클래스 제작		작성자 : 양희준
- * 
+ * 			2019.06.18		MemberVo 클래스 제작				작성자 : 양희준
+ * 			2019.06.20		mmail 변수 및 gettter&setter  추가	작성자 : 안다예
  */
 
 public class MemberVo {
@@ -22,6 +22,7 @@ public class MemberVo {
 	private String mbirth; // 회원 생일
 	private String maddr; // 회원 주소
 	private String mtel; // 회원 전화번호
+	private String mail; // 회원 전화번호
 	private Date mDate; // 가입날짜
 	private Time mTime; // 가입시간
 	
@@ -67,6 +68,13 @@ public class MemberVo {
 	}
 	public void setMtel(String mtel) {
 		this.mtel = mtel;
+	}
+	
+	public String getMail() {
+		return mail;
+	}
+	public void setMail(String mail) {
+		this.mail = mail;
 	}
 	public Date getmDate() {
 		return mDate;

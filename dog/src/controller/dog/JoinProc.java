@@ -30,6 +30,7 @@ public class JoinProc implements MainController {
 		String mbirth="";
 		String maddr=""; 
 		String mtel="";
+		String mmail="";
 		
 		mid = req.getParameter("id");
 		mpw = req.getParameter("pw");
@@ -37,10 +38,9 @@ public class JoinProc implements MainController {
 		mbirth = req.getParameter("birth");
 		maddr = req.getParameter("addr");
 		mtel = req.getParameter("tel");
+		mmail = req.getParameter("mail");
 	
-		
-		
-		
+
 		//데이터 많으르모 vo클래스에 담아서 매개변수 입력하자
 		MemberVo vo = new MemberVo();
 		vo.setMid(mid);
@@ -49,6 +49,7 @@ public class JoinProc implements MainController {
 		vo.setMbirth(mbirth);
 		vo.setMaddr(maddr);
 		vo.setMtel(mtel);
+		vo.setMail(mmail);
 		
 		//디비작업하고 결과받기
 		MemberDAO mdao = new MemberDAO();

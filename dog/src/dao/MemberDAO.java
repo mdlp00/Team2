@@ -25,6 +25,7 @@ import utils.*;
  * 			2019.06.19		addMemb 클래스 제작			작성자 : 안다예
  * 			2019.06.20		mailCheck 클래스 제작		작성자 : 강찬규
  * 			2019.06.20		randpwUpdate 클래스 제작	작성자 : 양희준
+ * 			2019.06.21		mail 추가					작성자 : 안다예
  */
 public class MemberDAO {
 	CDBCP db = null;
@@ -77,6 +78,7 @@ public class MemberDAO {
 			vo.setMname(rs.getString("m_name"));
 			vo.setMbirth(rs.getString("m_birth"));
 			vo.setMtel(rs.getString("m_tel"));
+			vo.setMtel(rs.getString("m_mail"));
 		} catch(Exception e) {
 			System.out.println("##### 아이디로 회원정보 가져오는 함수 DAO 에러");
 			e.printStackTrace();
@@ -127,6 +129,7 @@ public class MemberDAO {
 			pstmt.setString(4, vo.getMbirth());
 			pstmt.setString(5, vo.getMaddr());
 			pstmt.setString(6, vo.getMtel());
+			pstmt.setString(7, vo.getMail());
 			//질의 명령 보내고 결과받기
 			int cnt = pstmt.executeUpdate();
 			if(cnt == 0) {

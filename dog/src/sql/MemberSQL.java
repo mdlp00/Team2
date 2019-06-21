@@ -16,6 +16,7 @@ package sql;
  * 			2019.06.20 		INSERT_MEMBER(수정)		작성자 : 안다예
  * 			2019.06.20		SEL_ID_MAIL				작성자 : 강찬규
  * 			2019.06.20		UPDATE_RAND_PW			작성자 : 양희준
+ * 			2019.06.21		m_mail 추가				작성자 : 안다예
  * 
  */
 public class MemberSQL {
@@ -23,6 +24,7 @@ public class MemberSQL {
 	public final int SEL_ID_CHECK = 1002;
 	public final int SEL_MEMB_INFO = 1003;
 	public final int SEL_ID_MAIL = 1004;
+
 	
 	public final int INSERT_MEMBER = 2001;
 	
@@ -51,11 +53,11 @@ public class MemberSQL {
 		case INSERT_MEMBER:
 			buff.append("INSERT INTO ");
 			buff.append("	member( ");
-			buff.append("	m_no , m_id , m_pw , m_name, m_birth, m_addr, m_tel ");
+			buff.append("	m_no , m_id , m_pw , m_name, m_birth, m_addr, m_tel, m_mail ");
 			buff.append("	) ");
 			buff.append("VALUES( ");
 			buff.append("	(SELECT NVL(MAX(m_no)+1, 1) FROM member ), ");
-			buff.append(" ?, ?, ?, ?, ?, ? ");
+			buff.append(" ?, ?, ?, ?, ?, ?, ?  ");
 			buff.append("	) ");
 			break;
 		case SEL_MEMB_INFO:
