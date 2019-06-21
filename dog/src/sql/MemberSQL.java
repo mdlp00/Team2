@@ -62,7 +62,7 @@ public class MemberSQL {
 			break;
 		case SEL_MEMB_INFO:
 			buff.append("SELECT ");
-			buff.append("	m_addr, m_name, m_birth, m_tel ");
+			buff.append("	m_addr, m_name, m_birth, m_tel, m_mail ");
 			buff.append("FROM ");
 			buff.append("	member ");
 			buff.append("WHERE ");

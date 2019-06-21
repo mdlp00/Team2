@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Login Page</title>
+<title>로그인 하는 페이지!</title>
 <link type="text/css" rel="stylesheet" href="../css/w3.css" />
 <link type="text/css" rel="stylesheet" href="../css/w3-colors-win8.css" />
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">

@@ -78,7 +78,7 @@ public class MemberDAO {
 			vo.setMname(rs.getString("m_name"));
 			vo.setMbirth(rs.getString("m_birth"));
 			vo.setMtel(rs.getString("m_tel"));
-			vo.setMtel(rs.getString("m_mail"));
+			vo.setMail(rs.getString("m_mail"));
 		} catch(Exception e) {
 			System.out.println("##### 아이디로 회원정보 가져오는 함수 DAO 에러");
 			e.printStackTrace();

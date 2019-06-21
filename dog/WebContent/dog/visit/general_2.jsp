@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,7 +37,6 @@
 				}
 			}
 			
-			$('#pif_name').val('${pif_name}');
 			$('#pick_day').val('${pick_day}');
 			$('#start_time').val('${start_time}');
 			$('#end_time').val('${end_time}');
@@ -93,7 +93,9 @@
 					<span style="color: #6f6f6f;">노령견 및 환자견 케어가 필요합니다.</span>
 				</div>
 				<div style="height: 30px;"></div>
-				<input type="hidden" id="pif_name" name="pif_name" >
+<c:forEach var="data" items="${LIST}">
+				<input type="hidden" id="pif_name" name="pif_name" value="${data}">
+</c:forEach>
 				<input type="hidden" id="pick_day" name="pick_day" >
 				<input type="hidden" id="start_time" name="start_time" >
 				<input type="hidden" id="end_time" name="end_time" >

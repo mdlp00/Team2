@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import db.CDBCP;
 import sql.MemberSQL;
@@ -21,6 +22,7 @@ import vo.PetInfoVo;
  * 			변경 이력 관리
  * 			2019.06.20		PetInfoDAO 클래스 제작		작성자 : 양희준
  * 			2019.06.20		addPetInfo 함수 제작 		작성자 : 양희준
+ * 			2019.06.21		idGetPetData 함수 제작 		작성자 : 강찬규
  */
 
 public class PetInfoDAO {
@@ -65,4 +67,31 @@ public class PetInfoDAO {
 		return cnt;
 	}
 	
+	// 아이디로 펫 정보 가져오는 함수
+	public ArrayList<PetInfoVo> idGetPetData(String mid) {
+		ArrayList<PetInfoVo> list = new ArrayList<PetInfoVo>();
+		con = db.getCon();
+		String sql = pSQL.getSQL(pSQL.SELECT_PET);
+		pstmt = db.getPSTMT(con, sql);
+		try {
+			pstmt.setString(1, mid);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				PetInfoVo vo = new PetInfoVo();
+				vo.setP_name(rs.getString("pet_name"));
+				vo.setPet_age(rs.getString("pet_age"));
+				vo.setPet_kind(rs.getString("pet_kind"));
+				vo.setPet_size(rs.getString("pet_size"));
+				list.add(vo);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+			System.out.println("아이디로 펫 정보 가져오는 DAO 처리 에러");
+		} finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		return list;
+	}
 }
