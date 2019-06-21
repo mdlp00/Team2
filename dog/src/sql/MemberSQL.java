@@ -84,6 +84,7 @@ public class MemberSQL {
 			buff.append("WHERE ");
 			buff.append("m_id = ?");
 		}
+		
 		return buff.toString();
 	}
 }

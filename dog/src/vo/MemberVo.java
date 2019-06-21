@@ -26,7 +26,6 @@ public class MemberVo {
 	private Date mDate; // 가입날짜
 	private Time mTime; // 가입시간
 	
-	
 	public int getMno() {
 		return mno;
 	}

@@ -66,6 +66,7 @@ public class JoinProc implements MainController {
 			session.setAttribute("MID", vo.getMid());
 			view ="./welcome.jsp";	
 		}
+		
 		return view;
 	}
 

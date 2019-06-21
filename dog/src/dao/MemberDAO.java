@@ -90,6 +90,7 @@ public class MemberDAO {
 		return vo;
 	}
 
+	
 	// 아이디 중복체크 함수
 	public int idCheck(String id) {
 		int cnt = 8;
