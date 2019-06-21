@@ -110,11 +110,12 @@
 			var mpw = $('#pw').val();
 			var mname = $('#name').val();
 			var mbirth =  $('#birth').val();
+			var maddr = $('#mail').val();
 			var maddr = $('#addr').val();
 			var mtel = $('#tel').val();
 			// 미 기입 여부 확인
 			if(!mid || !mpw || !mname || !mbirth || !maddr || !mtel){
-				alert('mid'+ mid + '\r\n mpw'+ mpw + '\r\n mname'+ mnname + '\r\n mbirth' +mbitrh + '\r\n maddr' + maddr + '\r\n mtel' + mtel);
+				alert('mid'+ mid + '\r\n mpw'+ mpw + '\r\n mname'+ mnname + '\r\n mbirth' +mbitrh + '\r\n mail' + mail+ '\r\n maddr' + maddr + '\r\n mtel' + mtel);
 				return;
 			}
 			// 아이디 체크 여부 확인
@@ -171,6 +172,10 @@
 			<div class="w3-row b1">
 				<label class="b2">연락처 입력  :</label>
 				<input class="w3-border it" id="tel" name="tel" type="text" placeholder="연락처 입력">
+			</div>
+			<div class="w3-row b1">
+				<label class="b2">이메일 입력 :</label>
+				<input class="w3-border it" id="mail" name="mail" type="text" placeholder="이메일 입력">
 			</div>
 		</form>
 			<button class="w3-button w3-section w3-ripple" style="background-color: #86d6d4; color: white; width: 95px;" id="join">회원가입</button>
