@@ -21,7 +21,7 @@ public class PayVo {
 	private Date pay_dDate; // 결제 날짜
 	private Time pay_tDate; // 결제 시간
 	private int paym_no; // 결제수단 번호
-	
+	   
 	public int getR_no() {
 		return r_no;
 	}
