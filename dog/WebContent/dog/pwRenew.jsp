@@ -69,7 +69,9 @@
 				success: function(data){
 					if(data.cnt == 0){
 						alert("입력하신 메일로 임시 비밀번호를 발송했습니다.");
-						$('#frm').attr('action', '#');
+						$('#pid').val(sid);
+						$('#pmail').val(smail);
+						$('#frm').attr('action', 'pwsend.c3');
 						$('#frm').submit();
 					} else {
 						alert("입력하신 메일이 아이디에 등록된 메일과 일치하지 않습니다.\r\n다시 입력하여 주십시오.");
@@ -101,6 +103,8 @@
 							<div style="display: inline-block; width: 15px;"></div>
 							<div class="mint" style="font-size: 13pt; text-align: center;">회원 가입시 작성한 이메일로</div>
 							<div class="mint" style="font-size: 13pt; text-align: center;">임시 비밀번호를 보내드립니다.</div>
+							<input type="hidden" id="pid" name="pid">
+							<input type="hidden" id="pmail" name="pmail">
 						</div>
 						<div><p></p></div>
 						<div class="w3-row w3-margin">

@@ -1,5 +1,14 @@
 package utils;
 
+/**
+ * @author	양희준
+ * @since	2019.06.20
+ * @version	1.0
+ * @see
+ * 			변경 이력 관리
+ * 			2019.06.20		PwRandom 클래스 제작		작성자 : 양희준
+ */
+
 public class PwRandom {
 	public static String getRamdomPassword(int len) {
 		char[] charSet = new char[] { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F',

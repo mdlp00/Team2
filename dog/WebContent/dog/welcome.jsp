@@ -36,7 +36,7 @@
 			<div class="w3-center w3-hide-small">
 				<a href="visit.c3" class="w3-bar-item w3-button w3-center no-uline tab">펫시터 집으로 부르기</a>
 				<a href="#" class="w3-bar-item w3-button no-uline tab">펫시터 집에 맡기기</a>
-				<a href="#" class="w3-bar-item w3-button no-uline tab">자주하는질문</a>
+				<a href="support.c3" class="w3-bar-item w3-button no-uline tab">자주하는질문</a>
 				<a href="applyText.c3" class="w3-bar-item w3-button no-uline tab">펫시터지원</a>
 				<a href="information/dogJoin.c3" class="w3-bar-item w3-button no-uline tab">펫 등록</a>
 				<div class="w3-right w3-hide-small">

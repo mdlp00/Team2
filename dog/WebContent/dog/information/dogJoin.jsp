@@ -150,6 +150,7 @@
             <option value=5>치와와</option>
             <option value=6>슈나이저</option>
             <option value=7>닥스훈트</option>
+            <option value=7>조원용</option>
         </datalist>
         </select>
      
@@ -159,6 +160,7 @@
             <option value=1>강아지(1살이하)</option>
             <option value=2>성견(2~6살)</option>
             <option value=3>노령견(7살이상)</option>
+            <option value=3>조원견(10살이상)</option>
         </datalist>
         </select>
       

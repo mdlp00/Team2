@@ -18,6 +18,10 @@ public class LoginProc implements MainController {
 		String view = "";
 		String sid = req.getParameter("id");
 		String spw = req.getParameter("pw");
+		
+		System.out.println(sid);
+		System.out.println(spw);
+		
 		MemberDAO mdao = new MemberDAO();
 		int cnt = mdao.loginCnt(sid, spw);
 		if(cnt == 1) {
