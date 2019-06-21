@@ -9,7 +9,7 @@ import javax.servlet.http.*;
 
 import dao.*;
 
-
+ 
 @WebServlet("/dog/idcheck.ck")
 public class IDCheck extends HttpServlet {
 
