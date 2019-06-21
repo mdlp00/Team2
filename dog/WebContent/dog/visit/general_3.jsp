@@ -16,6 +16,19 @@
 </style>
 <script type="text/javascript">
 	$(document).ready(function(){
+		$('#pa1').click(function(){
+			$('.ppd').slideUp();
+			$('#pd1').slideDown();
+		});
+		$('#pa2').click(function(){
+			$('.ppd').slideUp();
+			$('#pd2').slideDown();
+		});
+		$('#pa3').click(function(){
+			$('.ppd').slideUp();
+			$('#pd3').slideDown();
+		});
+		
 		
 		$('#btn').click(function(){
 			var payment = $(':checked').val();
@@ -81,10 +94,23 @@
 					<h5>결제 수단 선택</h5>
 					<div style="height: 10px;"></div>
 					<div>
-						<input class="ppp" type="radio" name="payment" value="checkCard">체크카드
-						<input class="ppp" type="radio" name="payment" value="creditCard" >신용카드
-						<input class="ppp" type="radio" name="payment" value="depositlessPayment" >무통장입금
-						<input class="ppp" type="radio" name="payment" value="bankTransfer" >계좌이체
+						<input class="ppp" id="pa1" type="radio" name="payment" value="checkCard">체크카드
+						<input class="ppp" id="pa2" type="radio" name="payment" value="creditCard" >신용카드
+						<input class="ppp" id="pa3" type="radio" name="payment" value="depositlessPayment" >무통장입금
+					</div>
+				</div>
+				<div style="height: 15px;"></div>
+				<div>
+					<div style="display: inline-block; width: 800px; margin-left: 50px; color: #6f6f6f;">
+						<div class="ppd" style="display: none; height: 150px; border: 1px solid gray;" id="pd1">
+							<p>체크카드 고르는 곳</p>
+						</div>
+						<div class="ppd" style="display: none; height: 150px; border: 1px solid gray;" id="pd2">
+							<p>신용카드 고르는 곳</p>
+						</div>
+						<div class="ppd" style="display: none; height: 150px; border: 1px solid gray;" id="pd3">
+							<p>무통장 입금 계좌번호 보여주는 곳</p>
+						</div>
 					</div>
 				</div>
 				<div style="height: 15px;"></div>
