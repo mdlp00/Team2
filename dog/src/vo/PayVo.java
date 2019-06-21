@@ -22,7 +22,7 @@ public class PayVo {
 	private Time pay_tDate; // 결제 시간
 	private int paym_no; // 결제수단 번호
 	   
-	public int getR_no() {
+	public int getR_no() { 
 		return r_no;
 	}
 	public void setR_no(int r_no) {
