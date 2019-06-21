@@ -64,13 +64,18 @@
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
 				<div>
 <c:forEach var="data" items="${LIST}">
-					<div style="color: #6f6f6f;">반려동물 : ${data}</div>
+					<div style="color: #6f6f6f;"><strong>반려동물 :</strong> ${data.p_name} (${data.pet_age} / ${data.pet_size} / ${data.pet_kind} )</div>
 </c:forEach>
-					<div style="color: #6f6f6f;">방문주소 : ${addr}</div>
+					<div style="color: #6f6f6f;"><strong>방문주소 :</strong> ${addr}</div>
+					<div style="color: #6f6f6f;"><strong>방문날짜 :</strong> 7월 ${pick_day}일 / ${start_time} ~ ${end_time} / 총 ${total_time}시간</div>
+<c:forEach var="data" items="${REQCK}">
+					<div style="color: #6f6f6f;"><strong>요청사항 :</strong> ${data}</div>
+</c:forEach>
+					<div style="color: #6f6f6f;"><strong>추가요청사항 :</strong> ${reqe}</div>
 				</div>
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
 				<div style="height: 20px;"></div>
-				<h3 style="color: #6ec4c1;">결제 예정 금액 : 28,000 원</h3>
+				<h3 style="color: #6ec4c1;">결제 예정 금액 : ${price} 원</h3>
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
 				<div style="color: #6f6f6f;">
 					<h5>결제 수단 선택</h5>

@@ -37,7 +37,6 @@
 				}
 			}
 			
-			$('#pif_name').val('${pif_name}');
 			$('#pick_day').val('${pick_day}');
 			$('#start_time').val('${start_time}');
 			$('#end_time').val('${end_time}');

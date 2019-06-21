@@ -131,6 +131,9 @@
 				<input type="hidden" id="pif_name" name="pif_name" value="${data}">
 </c:forEach>
 				<input type="hidden" id="pick_day" name="pick_day" >
+				<div style="text-align: center; margin-bottom: 10px;">
+					<div style="display: inline-block; background-color: #6ec4c1; width: 380px; height: 30px; color: white;">시간을 선택하실때 분을 00 으로 맞춰주세요.</div>
+				</div>
 				<div>
 					<span style="color: #6f6f6f; font-size: 17px;">시작 시간 : </span>
 					<input type="time" id="start_time" name="start_time" style="border: 1px solid #6ec4c1;">
