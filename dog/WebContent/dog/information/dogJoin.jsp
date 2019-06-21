@@ -142,7 +142,7 @@
 		<br><br>
 		<h4> 견종 선택</h4>
 		<select class="w3-select"  name="pkind" placeholder="견종선택" style="width:40%">
-        <datalist id="pkind">
+        <datalist id="pkind">     
             <option value=1>포메라니안</option>        
             <option value=2>시츄</option>
             <option value=3>불독</option>
