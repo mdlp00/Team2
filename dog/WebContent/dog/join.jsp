@@ -110,12 +110,13 @@
 			var mpw = $('#pw').val();
 			var mname = $('#name').val();
 			var mbirth =  $('#birth').val();
-			var maddr = $('#mail').val();
 			var maddr = $('#addr').val();
 			var mtel = $('#tel').val();
+			var mmail = $('#mail').val();
 			// 미 기입 여부 확인
-			if(!mid || !mpw || !mname || !mbirth || !maddr || !mtel){
-				alert('mid'+ mid + '\r\n mpw'+ mpw + '\r\n mname'+ mnname + '\r\n mbirth' +mbitrh + '\r\n mail' + mail+ '\r\n maddr' + maddr + '\r\n mtel' + mtel);
+			if(!mid || !mpw || !mname || !mbirth || !maddr || !mtel || !mmail){
+				alert('id'+ mid + '\r\n pw'+ mpw + '\r\n name'+ mnname + '\r\n birth' +mbitrh + 
+						'\r\n addr' + maddr + '\r\n tel' + mtel + '\r\n mail' + mmail);
 				return;
 			}
 			// 아이디 체크 여부 확인
@@ -142,7 +143,8 @@
 	</div> 
 	<div class="w3-col m3"><p></p></div>
 	<div class="w3-center w3-col m6">
-		<form method="POST" action="joinProc.c3" id="frm" class="w3-container w3-card-4 w3-light-grey w3-margin"> 
+		<div class="w3-container w3-card-4 w3-light-grey w3-margin">
+		<form method="POST" action="joinProc.c3" id="frm" name="frm"> 
 			<h2 class="w3-center color1">회 원 가 입</h2>
 			<div class="w3-row b1">
 				<label class="b2" >아이디 입력 : </label>
@@ -180,6 +182,7 @@
 		</form>
 			<button class="w3-button w3-section w3-ripple" style="background-color: #86d6d4; color: white; width: 95px;" id="join">회원가입</button>
 			<button class="w3-button w3-section w3-ripple" style="background-color: #86d6d4; color: white; width: 95px;" id="reset">취소</button>
+		</div>
 	</div>
 	<div class="w3-col m3"><p></p></div>
 </body>

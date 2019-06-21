@@ -57,7 +57,7 @@ public class MemberSQL {
 			buff.append("	) ");
 			buff.append("VALUES( ");
 			buff.append("	(SELECT NVL(MAX(m_no)+1, 1) FROM member ), ");
-			buff.append(" ?, ?, ?, ?, ?, ?, ?  ");
+			buff.append(" 	?, ?, ?, ?, ?, ?, ?  ");
 			buff.append("	) ");
 			break;
 		case SEL_MEMB_INFO:
@@ -78,11 +78,11 @@ public class MemberSQL {
 			break;
 		case UPDATE_RAND_PW:
 			buff.append("UPDATE ");
-			buff.append("member ");
+			buff.append("	member ");
 			buff.append("SET ");
-			buff.append("m_pw = ? ");
+			buff.append("	m_pw = ? ");
 			buff.append("WHERE ");
-			buff.append("m_id = ?");
+			buff.append("	m_id = ? ");
 		}
 		
 		return buff.toString();

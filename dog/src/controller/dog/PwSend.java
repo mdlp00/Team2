@@ -1,12 +1,16 @@
 package controller.dog;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import controller.MainController;
-import dao.MemberDAO;
-import utils.MailSend;
-import utils.PwRandom;
+/**
+ * @author	양희준
+ * @since	2019.06.20
+ * @version	1.0
+ * @see
+ * 			변경 이력 관리
+ * 			2019.06.20		PwSend 클래스 제작		작성자 : 양희준
+ */
+import javax.servlet.http.*;
+import controller.*;
+import dao.*;
+import utils.*;
 
 public class PwSend implements MainController{
 
