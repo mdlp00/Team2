@@ -110,13 +110,12 @@
 			var mpw = $('#pw').val();
 			var mname = $('#name').val();
 			var mbirth =  $('#birth').val();
+			var mmail = $('#mail').val();
 			var maddr = $('#addr').val();
 			var mtel = $('#tel').val();
-			var mmail = $('#mail').val();
 			// 미 기입 여부 확인
-			if(!mid || !mpw || !mname || !mbirth || !maddr || !mtel || !mmail){
-				alert('id'+ mid + '\r\n pw'+ mpw + '\r\n name'+ mnname + '\r\n birth' +mbitrh + 
-						'\r\n addr' + maddr + '\r\n tel' + mtel + '\r\n mail' + mmail);
+			if(!mid || !mpw || !mname || !mbirth || !maddr || !mtel){
+				alert('mid'+ mid + '\r\n mpw'+ mpw + '\r\n mname'+ mnname + '\r\n mbirth' +mbitrh + '\r\n mail' + mail+ '\r\n maddr' + maddr + '\r\n mtel' + mtel);
 				return;
 			}
 			// 아이디 체크 여부 확인
@@ -129,6 +128,12 @@
 			if(!(re.test(mtel))){
 				alert('올바른 전화번호 형식이 아닙니다.');
 				return;
+			}
+			//메일검사   
+			var re =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+			if(!(re.test(mail))){
+				alert('올바른 메일 형식이 아닙니다.');  
+				return;      
 			}
 			
 			$('#frm').submit();
@@ -167,7 +172,7 @@
 				<label class="b2" style="margin-top: -10px;">생년월일 입력 : </label>
 				<input class="w3-border it" id="birth" name="birth" type="date" placeholder="생년월일 입력">
 			</div>
-			<div class="w3-row b1">
+			<div class="w3-row b1">    
 				<label class="b2">주소 입력 :</label>
 				<input class="w3-border it" id="addr" name="addr" type="text" placeholder="주소 입력">
 			</div>
