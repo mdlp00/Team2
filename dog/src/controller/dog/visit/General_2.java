@@ -1,4 +1,6 @@
 package controller.dog.visit;
+import java.util.ArrayList;
+
 /**
  * @author	강찬규
  * @since	2019.06.19
@@ -17,12 +19,18 @@ public class General_2 implements MainController {
 	@Override
 	public String executeC3(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "general_2.jsp";
-		String pif_name = req.getParameter("pif_name");
+		String[] pif_name = req.getParameterValues("pif_name");
 		String pick_day = req.getParameter("pick_day");
 		String start_time = req.getParameter("start_time");
 		String end_time = req.getParameter("end_time");
 		
-		req.setAttribute("pif_name", pif_name);
+		int len = pif_name.length;
+		ArrayList<String> list = new ArrayList<String>();
+		for(int i = 0; i < len; i++) {
+			list.add(pif_name[i]);
+		}
+		
+		req.setAttribute("LIST", list);
 		req.setAttribute("pick_day", pick_day);
 		req.setAttribute("start_time", start_time);
 		req.setAttribute("end_time", end_time);

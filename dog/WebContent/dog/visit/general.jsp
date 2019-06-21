@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -69,13 +70,15 @@
 				<div style="height: 45px;"></div>
 				<h4 style="text-align: center; color: #6f6f6f; padding: 0px; margin: 0px;">돌봄을 원하는<br>반려동물을 선택해주세요</h4>
 				<div style="height: 45px;"></div>
+<c:forEach var="data" items="${LIST}">
 				<label style="width: 100%; text-align: left;">
 					<span style="width: 100%; height: 25px;">
-						<i class="w3-xlarge fa fa-check-circle-o" style="color: #6f6f6f; margin-right: 5px;" id="check1"></i><input type="checkbox" id="pif_name" name="pif_name" style="display: none;" value="happy">
-						<span style="color: #6f6f6f;">반려견 이름(반려견 / 생년월 / 무게)</span>
+						<i class="w3-xlarge fa fa-check-circle-o" style="color: #6f6f6f; margin-right: 5px;"></i><input type="checkbox" id="pif_name" name="pif_name" style="display: none;" value="${data.p_name}">
+						<span style="color: #6f6f6f;">${data.p_name} ( ${data.pet_age} / ${data.pet_size} / ${data.pet_kind} )</span>
 					</span>
 				</label>
 				<div style="height: 10px;"></div>
+</c:forEach>
 				<div style="width: 100%; height: 0.1px; border: 1px solid #d0d0d0;"></div>
 			</div>
 		</form>

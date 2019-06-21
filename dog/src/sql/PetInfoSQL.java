@@ -9,8 +9,8 @@ package sql;
  * 			변경 이력 관리
  * 			2019.06.20		PetInfoSQL 클래스 제작		작성자 : 양희준
  *  		2019.06.20		getSQL 클래스 제작			작성자 : 양희준
- * 			2019.06.20		SELECT_PET				작성자 : 양희준
- * 			2019.06.20		INSERT_PET				작성자 : 양희준 
+ * 			2019.06.20		SELECT_PET					작성자 : 양희준
+ * 			2019.06.20		INSERT_PET					작성자 : 양희준 
  */
 public class PetInfoSQL {
 	public final int SELECT_PET = 1001; // 펫 정보조회 SQL
@@ -34,14 +34,15 @@ public class PetInfoSQL {
 			break;
 		case SELECT_PET:
 			buff.append("SELECT ");
-			buff.append("pif.pif_name, pk.pk_kinds, pa.pa_age, ps.ps_size ");
+			buff.append("	pif.pif_name pet_name, pk.pk_kinds pet_kind, pa.pa_age pet_age, ps.ps_size pet_size ");
 			buff.append("FROM ");
-			buff.append("member m INNER JOIN petinfo pif ON m.m_id=pi.m_id ");
-			buff.append("INNER JOIN petkinds pk ON pif.pk_no=pk.pk_no ");
-			buff.append("INNER JOIN petage pa ON pif.pa_no=pa.pa_no ");
-			buff.append("INNER JOIN petsize ps ON pif.ps_no=ps.ps_no ");
+			buff.append("	member m INNER JOIN petinfo pif ON m.m_id=pif.m_id ");
+			buff.append("	INNER JOIN petkinds pk ON pif.pk_no=pk.pk_no ");
+			buff.append("	INNER JOIN petage pa ON pif.pa_no=pa.pa_no ");
+			buff.append("	INNER JOIN petsize ps ON pif.ps_no=ps.ps_no ");
 			buff.append("WHERE ");
-			buff.append("m.m_id = ?");
+			buff.append("	m.m_id = ? ");
+			break;
 		}
 		
 		return buff.toString();

@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,7 +24,6 @@
 				return;
 			}
 			
-			$('#pif_name').val('${pif_name}');
 			$('#pick_day').val('${pick_day}');
 			$('#start_time').val('${start_time}');
 			$('#end_time').val('${end_time}');
@@ -63,7 +63,9 @@
 				<h4 style="text-align: left; color: #6f6f6f; padding: 0px; margin: 0px;">예약 확인하시고 결제정보를 등록해주세요.</h4>
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
 				<div>
-					<div style="color: #6f6f6f;">반려동물 : ${pif_name}</div>
+<c:forEach var="data" items="${LIST}">
+					<div style="color: #6f6f6f;">반려동물 : ${data}</div>
+</c:forEach>
 					<div style="color: #6f6f6f;">방문주소 : ${addr}</div>
 				</div>
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
@@ -83,7 +85,9 @@
 				<div style="height: 15px;"></div>
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
 			</div>
-			<input type="hidden" id="pif_name" name="pif_name" >
+<c:forEach var="data" items="${LIST}">
+			<input type="hidden" id="pif_name" name="pif_name" value="${data}">
+</c:forEach>
 			<input type="hidden" id="pick_day" name="pick_day" >
 			<input type="hidden" id="start_time" name="start_time" >
 			<input type="hidden" id="end_time" name="end_time" >

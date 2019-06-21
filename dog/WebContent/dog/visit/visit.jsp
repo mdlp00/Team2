@@ -28,7 +28,7 @@
 	<div class="w3-top" style="width: 100%; background-color: #fff; border-bottom: 1px solid #e6e6e6; z-index: 3;">
 		<div class="w3-bar w3-white">
 			<div class="w3-col m4">
-				<a href="../welcome.jsp" class="w3-left w3-bar-item w3-button w3-wide no-uline"><img src="../img/logo.png" class="logo"></a>
+				<a href="welcome.jsp" class="w3-left w3-bar-item w3-button w3-wide no-uline"><img src="../img/logo.png" class="logo"></a>
 			</div>
 			<div class="w3-center w3-col m4">
 				<div class="w3-center" style="display: inline-block;">
@@ -40,9 +40,9 @@
 	</div>
 	
 	<!-- 몸통 태그 -->
-	<div style="margin: 80px 200px 0px; background-color: #fbfbfb;">
+	<div style="margin: 40px 200px 0px; padding: 10px 50px; background-color: #fbfbfb;">
 		<div>
-			<div style="height: 45px;"></div>
+			<div style="height: 85px;"></div>
 			<h4 style="text-align: center; color: #6f6f6f; padding: 0px; margin: 0px;">원하시는 방문 유형을<br>선택해주세요</h4>
 			<div style="height: 45px;"></div>
 			<button style="background-color: #fff; border: 1px solid #6ec4c1; color: #7fc3c1; padding: 17px 0px 15px; width: 100%;" id="btn1">정기 방문 돌봄 신청</button>

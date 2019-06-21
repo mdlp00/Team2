@@ -1,6 +1,4 @@
 package controller.dog.visit;
-import java.util.ArrayList;
-
 /**
  * @author	강찬규
  * @since	2019.06.19
@@ -14,11 +12,11 @@ import dao.*;
 import vo.*;
 import controller.MainController;
 
-public class General_3 implements MainController {
+public class VisitProc implements MainController {
 
 	@Override
 	public String executeC3(HttpServletRequest req, HttpServletResponse resp) {
-		String view = "general_3.jsp";
+		String view = "bookList.jsp";
 		String[] pif_name = req.getParameterValues("pif_name");
 		String pick_day = req.getParameter("pick_day");
 		String start_time = req.getParameter("start_time");
@@ -28,6 +26,7 @@ public class General_3 implements MainController {
 		String ck2 = req.getParameter("ck2");
 		String ck3 = req.getParameter("ck3");
 		String ck4 = req.getParameter("ck4");
+		String payment = req.getParameter("payment");
 		
 		String id = (String)req.getSession().getAttribute("SID");
 		MemberDAO mdao = new MemberDAO();
@@ -35,31 +34,6 @@ public class General_3 implements MainController {
 		String addr = vo.getMaddr();
 		
 		
-		int len = pif_name.length;
-		ArrayList<String> list = new ArrayList<String>();
-		for(int i = 0; i < len; i++) {
-			list.add(pif_name[i]);
-		}
-		
-		req.setAttribute("LIST", list);
-		req.setAttribute("pick_day", pick_day);
-		req.setAttribute("start_time", start_time);
-		req.setAttribute("end_time", end_time);
-		req.setAttribute("reqe", reqe);
-		req.setAttribute("addr", addr);
-		
-		if(ck1 != null) {
-			req.setAttribute("ck1", ck1);
-		}
-		if(ck2 != null) {
-			req.setAttribute("ck2", ck2);
-		}
-		if(ck3 != null) {
-			req.setAttribute("ck3", ck3);
-		}
-		if(ck4 != null) {
-			req.setAttribute("ck4", ck4);
-		}
 		
 		return view;
 	}

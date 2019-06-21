@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +40,6 @@
 				return;
 			}
 			$('#pick_day').val(day);
-			$('#pif_name').val('${pif_name}');
 			$('#frm').submit();
 		});
 	});
@@ -127,7 +127,9 @@
 		<!-- form 태그 -->
 		<div class="w3-center">
 			<form method="POST" action="general_2.c3" name="frm" id="frm">
-				<input type="hidden" id="pif_name" name="pif_name" >
+<c:forEach var="data" items="${LIST}">
+				<input type="hidden" id="pif_name" name="pif_name" value="${data}">
+</c:forEach>
 				<input type="hidden" id="pick_day" name="pick_day" >
 				<div>
 					<span style="color: #6f6f6f; font-size: 17px;">시작 시간 : </span>
