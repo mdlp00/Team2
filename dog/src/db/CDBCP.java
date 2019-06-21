@@ -13,7 +13,7 @@ import javax.sql.DataSource;
  * @version	1.0
  * @see
  * 			유지관리 변경 등록
- * 			2019.06.18		CDBCP 클래스제작		담당자 : 강찬규
+ * 			2019.06.18		CDBCP 클래스제작		담당자 : 강찬규 
  *
  */
 
