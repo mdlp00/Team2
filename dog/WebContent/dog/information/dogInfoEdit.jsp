@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>반려견 등록</title>
+<title>반려견 수정</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
@@ -69,36 +67,25 @@
 <script type="text/javascript">
 	var id = '${SID}';
 	$(document).ready(function(){
-			
+			if(!id) {
+				$('#log').text('로그인');
+				$('#log').attr('href', '${pageContext.request.contextPath}/dog/login.c3');
+				$('#nick').css('display', 'none');
+				$('#joining').css('display', 'visible');
+			} else {
+				$('#log').text('로그아웃');
+				$('#log').attr('href', '${pageContext.request.contextPath}/dog/logoutProc.c3');			
+				$('#nick').css('display', 'visible');
+				$('#joining').css('display', 'none');
+			}
+						
+			$('#update').click(function(){
+				
+				alert('펫정보 수정이 완료되었습니다.');
+				$('#frm').attr('action','${pageContext.request.contextPath}/dog/information/dogInEditProc.c3');
+			});
 		
-		
-	    if(!id) {
-			$('#log').text('로그인');
-			$('#log').attr('href', '${pageContext.request.contextPath}/dog/login.c3');
-			$('#nick').css('display', 'none');
-			$('#joining').css('display', 'visible');
-		} else {
-			$('#log').text('로그아웃');
-			$('#log').attr('href', '${pageContext.request.contextPath}/dog/logoutProc.c3');			
-			$('#nick').css('display', 'visible');
-			$('#joining').css('display', 'none');
-		}
-		
-		// 등록 완료 버튼
-		$('#join').click(function(){
-			
-			alert('반려견 등록이 완료되었습니다.');
-			$('#frm').attr('action','${pageContext.request.contextPath}/dog/information/dogJoinProc.c3');
-			$('#frm').submit();
 		});
-		
-	});	
-
-	
-	
-	
-	
-		
 </script>
 </head>
 <body>
@@ -142,35 +129,51 @@
 <!-- 가운데 부분 -->
 	<div class="cen">
 		<form method="post" id="frm" name="frm">
-		
 		<div class="w3-content w3-margin">
 				<label for="id">애완동물 이름을 입력 : </label>
-				<input type="text" name="pname" id="pname" class="w3-col m10 w3-input w3-border" placeholder="애완동물이름을 입력해주세요" required />	
+				<input type="text" name="pname" id="pname" value="${PVO.p_name}"class="w3-col m10 w3-input w3-border" placeholder="애완동물이름을 입력해주세요" required />	
 		</div>
 		<br><br>
 		<h4> 견종 선택</h4>
 		<select class="w3-select"  id="pkind" name="pkind" style="width:40%">
 <c:forEach  var="pk" items="${map.klist}">
-		    <option value="${pk.pk_no}">${pk.pk_kinds}</option>
+         <c:if test="${ pk.pk_no eq PVO.pk_no  }">   
+		    <option value="${pk.pk_no}"  selected="selected">${pk.pk_kinds}</option>
+		 </c:if>
+		 <c:if test="${ pk.pk_no ne PVO.pk_no  }">   
+		    <option value="${pk.pk_no}" >${pk.pk_kinds}</option>
+		 </c:if>   
 </c:forEach>
         </select>
      
 		<h4> 견종 나이</h4>
 		<select class="w3-select"  name="page" style="width:40%">
 <c:forEach var="pa" items="${map.alist}">
+		<c:if test="${pa.pa_no eq PVO.pa_no}">
+            <option value="${pa.pa_no}" selected="selected">${pa.pa_age}</option>
+        </c:if>
+        <c:if test="${pa.pa_no ne PVO.pa_no}">
             <option value="${pa.pa_no}">${pa.pa_age}</option>
+        </c:if>
 </c:forEach>
         </select>
       
 		<h4> 반려견크기 </h4>
 		<select  class="w3-select" name="psize" style="width:40%">
 <c:forEach var="ps" items="${map.slist}">
+		<c:if test="${ps.ps_no eq PVO.ps_no}">
+            <option value="${ps.ps_no}" selected="selected">${ps.ps_size}</option>
+        </c:if>
+		<c:if test="${ps.ps_no ne PVO.ps_no}">
             <option value="${ps.ps_no}">${ps.ps_size}</option>
+        </c:if>
 </c:forEach>
         </select>
+        
+        <input type="hidden" id="pno" name="pno" value="${PVO.p_no}">
 
 		<br><br>
-    		<input class="w3-cneter" type="submit" value="저장" id="join" name="join" style= "background-color: #86d6d4; color: white">
+    		<input class="w3-cneter" type="submit" value="수정완료" id="update" name="update" style= "background-color: #86d6d4; color: white">
 		</form>
 	</div>
 </body>

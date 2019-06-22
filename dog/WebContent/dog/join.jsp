@@ -5,9 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 페이지</title>
-<link type="text/css" rel="stylesheet" href="../css/w3.css" />
-<link type="text/css" rel="stylesheet" href="../css/w3-colors-win8.css" />
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
 	html, body {
 		margin: 0px;
@@ -131,11 +132,12 @@
 			}
 			//메일검사   
 			var re =  /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
-			if(!(re.test(mail))){
+			if(!(re.test(mmail))){
 				alert('올바른 메일 형식이 아닙니다.');  
 				return;      
 			}
 			
+			alert('회원가입이 완료되었습니다.')
 			$('#frm').submit();
 		});
 	});

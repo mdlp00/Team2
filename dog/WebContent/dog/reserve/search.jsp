@@ -4,15 +4,32 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>JSP Study</title>
-<link type="text/css" rel="stylesheet" href="../../css/w3.css" />
-<link type="text/css" rel="stylesheet" href="../../css/w3-colors-win8.css" />
-<script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
+<title>서비스</title>
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
 
 </style>
 <script type="text/javascript">
+var id = '${SID}';
+	$(document).ready(function(){
+		if(!id) {
+			$('#log').text('로그인');
+			$('#log').attr('href', '${pageContext.request.contextPath}/dog/login.c3');
+			$('#nick').css('display', 'none');
+			$('#joining').css('display', 'visible');
+		} else {
+			$('#log').text('로그아웃');
+			$('#log').attr('href', '${pageContext.request.contextPath}/dog/logoutProc.c3');			
+			$('#nick').css('display', 'visible');
+			$('#joining').css('display', 'none');
+		}
+		
+		
 	$(function(){
+		
 		$('#ddate').click(function(){
 			$(this).attr('type', 'date');
 			$(this).prop('readonly', false);
@@ -22,26 +39,32 @@
 			$(this).prop('readonly', false);
 		});
 	});
+	
+	});
 </script>
 </head>
 <body>
-<!-- 상위 태그 -->
-<div class="w3-top">
-	<div class="w3-bar w3-white w3-card" id="myNavbar">
-		<a href="../../main.jsp" class="w3-bar-item w3-button w3-wide no-uline">도그 메이트</a>
-		<div class="w3-center w3-hide-small">
-			<a href="#call" class="w3-bar-item w3-button w3-center no-uline">펫시터 집으로 부르기</a>
-			<a href="#entrust" class="w3-bar-item w3-button no-uline">펫시터 집에 맡기기</a>
-			<a href="#faq" class="w3-bar-item w3-button no-uline">자주하는질문</a>
-			<a href="../applyText.c3" class="w3-bar-item w3-button no-uline">펫시터지원</a>
-			<a href="#blog" class="w3-bar-item w3-button no-uline">블로그</a>
-		<div class="w3-right w3-hide-small">
-			<a href="../login.c3" class="w3-bar-item w3-button no-uline">로그인</a>
-			<a href="#join" class="w3-bar-item w3-button no-uline">회원가입</a>
-   		</div>
-    	</div>
-  	</div>
-</div>
+	<!-- 상위 태그 -->
+	<div class="w3-top">
+		<div class="w3-bar w3-white w3-card" id="myNavbar">
+			<a href="${pageContext.request.contextPath}/dog/welcome.c3" class="w3-bar-item w3-button w3-wide no-uline"><img src="${pageContext.request.contextPath}/img/logo.png" class="logo"></a>
+			<div class="w3-center w3-hide-small">
+				<a href="${pageContext.request.contextPath}/dog/visit.c3" class="w3-bar-item w3-button w3-center no-uline tab">펫시터 집으로 부르기</a>
+				<a href="${pageContext.request.contextPath}/dog/reserve/search.c3" class="w3-bar-item w3-button no-uline tab">펫시터 집에 맡기기</a>
+				<a href="${pageContext.request.contextPath}/dog/support.c3" class="w3-bar-item w3-button no-uline tab">자주하는질문</a>
+				<a href="${pageContext.request.contextPath}/dog/applyText.c3" class="w3-bar-item w3-button no-uline tab">펫시터지원</a>
+				<a href="${pageContext.request.contextPath}/dog/information/dogJoin.c3" class="w3-bar-item w3-button no-uline tab">펫 등록</a>
+				<div class="w3-right w3-hide-small">
+					<div style="text-align: left;">
+						<a href="myInfo.c3" id="nick" class="w3-bar-item w3-button no-uline tab">${SID} 님</a>
+						<a href="login.c3" class="w3-bar-item w3-button no-uline tab" id="log" style="margin: 13px 0px 0px;">로그인</a>
+						<a href="join.c3" class="w3-bar-item w3-button no-uline tab" id="joining">회원가입</a>
+					</div>
+				</div>
+	    	</div>
+	  	</div>
+	</div>
+	
 <!-- 지역 선택 -->
 <div class="w3-row w3-margin-top w3-col w3-padding" style="height: 100px;">
 	<div class="w3-row"><p></p></div>

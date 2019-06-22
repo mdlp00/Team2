@@ -4,10 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인 하는 페이지!</title>
-<link type="text/css" rel="stylesheet" href="../css/w3.css" />
-<link type="text/css" rel="stylesheet" href="../css/w3-colors-win8.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
 <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<script type="text/javascript" src="../js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
 	html, body {
 		overflow: hidden;

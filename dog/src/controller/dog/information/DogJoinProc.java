@@ -14,9 +14,10 @@ public class DogJoinProc implements MainController {
 
 	@Override
 	public String executeC3(HttpServletRequest req, HttpServletResponse resp) {
-		//String view = "dog/information/dogJoin.c3";
-		String view = "../join.jsp";
 		
+		req.setAttribute("isRDR", 1);
+		
+		String view = "";
 		String sname = "";
 		String skind = "";
 		String sage = "";
@@ -44,14 +45,14 @@ public class DogJoinProc implements MainController {
 		vo.setPs_no(isize);
 		vo.setM_id(sid);
 		
+		
+		String url = req.getRequestURL().toString().replace("dog/information/dogJoinProc.c3","");
 		// 디비작업 시작
 		PetInfoDAO pdao = new PetInfoDAO();
 		int cnt = pdao.addPetInfo(vo);
-		
 		if(cnt == 0) {
-			view = "./DogJoin.c3";
 		}else {
-			view = "./dogInfo.c3";
+			view = url +"dog/myInfo.c3";
 		}
 		return view;
 	}

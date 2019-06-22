@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>반려견 등록</title>
+<title>강아지 정보 페이지</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
@@ -29,7 +27,6 @@
 	}
 	
 	.leftList{
-		margin-top : 140px;
 		width : 170px;
 	}
 	
@@ -38,41 +35,70 @@
 	}
 	
 	.lmargin{
-		float : left;
-		margin-left : 5%;
+		margin-top : 150px;
+		margin-left : 8%;
+		height : auto !important;
 		display : inline-block;
+		float : left;
 	}
 	
 	.cen{
-		margin-top : 140px;
 		float : left;
-		margin-left : 5%;
-		width : 600px;
-		height : 500px;
+		margin-left : 50px;
+		width : 700px;
+		height : 400px;
 		border : 1px solid gray;
+		display : inline-block;
+		margin-top : 140px;
+	}
+	
+	.contents_wrap{
+		width : 100%;
+		height : 650px;
+		display : inline-block;
+	}
+		
+	.pet_list{
+		width : 100%;
+		height : 81px;
+	}
+	
+	.pet_inline{
 		display : inline-block;
 	}
 	
-	.d1{
-		display: inline-block;
-		width:400px ;
-		margin: 10px auto;
-		text-align: center;
-		
+	.pet_img{
+		height : 100%;
+		width : 85px;
+		background-color : yellow;
 	}
-	.dh{
-		width:400px;
-		height:400px;
-		overflow: hidden;
+	
+	.pet_tle{
+		width : 300px;
+		height : 100%;
+		background-color : pink;
+	}
+	
+	.pet_info{
+		margin-top : 15px;
+		width : 100%;
+		height : 35px;
+		background-color : red;
+	}
+	
+	.pet_teb{
+		width : 100%;
+		height : 17px;
+	}
+	
+	.stext{
+		display : inline-block;
 	}
 </style>
 <script type="text/javascript">
 	var id = '${SID}';
 	$(document).ready(function(){
-			
-		
-		
-	    if(!id) {
+		if(!id) {
 			$('#log').text('로그인');
 			$('#log').attr('href', '${pageContext.request.contextPath}/dog/login.c3');
 			$('#nick').css('display', 'none');
@@ -84,21 +110,11 @@
 			$('#joining').css('display', 'none');
 		}
 		
-		// 등록 완료 버튼
-		$('#join').click(function(){
-			
-			alert('반려견 등록이 완료되었습니다.');
-			$('#frm').attr('action','${pageContext.request.contextPath}/dog/information/dogJoinProc.c3');
-			$('#frm').submit();
-		});
+	$('#add').click(function(){
+		$(location).attr('href','${pageContext.request.contextPath}/dog/information/dogJoin.c3');
+	});
 		
-	});	
-
-	
-	
-	
-	
-		
+	});
 </script>
 </head>
 <body>
@@ -128,7 +144,7 @@
 	<div class="lmargin">
 	   <div class="leftList">
 	   		<div style="border : 1px solid gray; text-align : center;">
-			    <img src="../../img/img_avatar2.png" style="width:100%;" class="w3-round"><br><br>
+			    <img src="${pageContext.request.contextPath}/img/img_avatar2.png" style="width:100%;" class="w3-round"><br><br>
 			    <h4>${SID}</h4>
 	    	</div>
 	  </div>
@@ -141,37 +157,23 @@
 	
 <!-- 가운데 부분 -->
 	<div class="cen">
-		<form method="post" id="frm" name="frm">
+		<div class="contents_wrap">
 		
-		<div class="w3-content w3-margin">
-				<label for="id">애완동물 이름을 입력 : </label>
-				<input type="text" name="pname" id="pname" class="w3-col m10 w3-input w3-border" placeholder="애완동물이름을 입력해주세요" required />	
-		</div>
-		<br><br>
-		<h4> 견종 선택</h4>
-		<select class="w3-select"  id="pkind" name="pkind" style="width:40%">
-<c:forEach  var="pk" items="${map.klist}">
-		    <option value="${pk.pk_no}">${pk.pk_kinds}</option>
-</c:forEach>
-        </select>
-     
-		<h4> 견종 나이</h4>
-		<select class="w3-select"  name="page" style="width:40%">
-<c:forEach var="pa" items="${map.alist}">
-            <option value="${pa.pa_no}">${pa.pa_age}</option>
-</c:forEach>
-        </select>
-      
-		<h4> 반려견크기 </h4>
-		<select  class="w3-select" name="psize" style="width:40%">
-<c:forEach var="ps" items="${map.slist}">
-            <option value="${ps.ps_no}">${ps.ps_size}</option>
-</c:forEach>
-        </select>
+			<div class="pet_list">
 
-		<br><br>
-    		<input class="w3-cneter" type="submit" value="저장" id="join" name="join" style= "background-color: #86d6d4; color: white">
-		</form>
+			    <img src="${pageContext.request.contextPath}/img/logo.png" class="w3-left w3-circle w3-margin-right" style="width:80px; height : 100%;">
+			    <span class="w3-margin-right">${data.p_name}</span><br>
+			    (${data.pet_kind},${data.pet_age},${data.pet_size})
+				
+				<div class="pet_teb">
+					<div style= "color: #7fc3c1; display : inline-block;" id="">상세보기</div>
+					<div style= "color: #7fc3c1; display : inline-block;" id="">수정</div>
+					<div style= "color: #7fc3c1; display : inline-block;" id="">이미지수정</div>
+					<div style= "color: #7fc3c1; display : inline-block;" id="">삭제</div>
+				</div>
+			</div>
+		
+		</div>
 	</div>
 </body>
 </html>

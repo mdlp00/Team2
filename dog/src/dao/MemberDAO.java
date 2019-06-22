@@ -26,6 +26,7 @@ import utils.*;
  * 			2019.06.20		mailCheck 클래스 제작		작성자 : 강찬규
  * 			2019.06.20		randpwUpdate 클래스 제작	작성자 : 양희준
  * 			2019.06.21		mail 추가					작성자 : 안다예
+ * 			2019.06.22		updateMemb 클래스 제작		작성자 : 양희준
  */
 public class MemberDAO {
 	CDBCP db = null;
@@ -193,6 +194,30 @@ public class MemberDAO {
 			cnt = pstmt.executeUpdate();
 		}catch (Exception e) {
 			// TODO: handle exception
+		}finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		return cnt;
+	}
+	
+	// 회원정보 수정 함수
+	public int updateMemb(MemberVo vo) {
+		int cnt = 0;
+		
+		con = db.getCon();
+		String sql = mSQL.getSQL(mSQL.UPDATE_MEMBER);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			pstmt.setString(1, vo.getMpw());
+			pstmt.setString(2, vo.getMtel());
+			pstmt.setString(3, vo.getMail());
+			pstmt.setString(4, vo.getMid());
+
+			cnt = pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
 		}finally {
 			db.close(pstmt);
 			db.close(con);
