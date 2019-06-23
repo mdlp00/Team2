@@ -16,6 +16,8 @@ package sql;
  * 			2019.06.22		SEL_SIZE_LIST			작성자 : 양희준
  * 			2019.06.22		SEL_KIND_LIST			작성자 : 양희준
  * 			2019.06.22		UPDATE_PET_INFO			작성자 : 양희준
+ * 			2019.06.23		INSERT_PET_IMG			작성자 : 양희준
+ * 			2019.06.23		SELECT_PET_IMG_LIST     작성자 : 양희준
  */
 public class PetInfoSQL {
 	public final int SELECT_PET = 1001; // 펫 정보조회 SQL
@@ -23,8 +25,10 @@ public class PetInfoSQL {
 	public final int SEL_AGE_LIST = 1100; // 펫 나이 리스트 SQL
 	public final int SEL_SIZE_LIST = 1101; // 펫 사이즈 리스트 SQL
 	public final int SEL_KIND_LIST = 1102; // 펫 종류 리스트 SQL
+	public final int SELECT_PET_IMG_LIST = 1103; // 펫 파일 리스트
 	
 	public final int INSERT_PET = 2001; // 펫 정보등록 SQL
+	public final int INSERT_PET_IMG = 2002; // 펫 이미지 등록 SQL
 	
 	public final int UPDATE_PET_INFO = 3001; // 펫 정보수정 SQL
 	
@@ -55,6 +59,7 @@ public class PetInfoSQL {
 			buff.append("	INNER JOIN petsize ps ON pif.ps_no=ps.ps_no ");
 			buff.append("WHERE ");
 			buff.append("	m.m_id = ? ");
+			buff.append("ORDER BY pif_no");
 			break;
 		case SELECT_PET_IDX:
 			buff.append("SELECT ");
@@ -95,6 +100,29 @@ public class PetInfoSQL {
 			buff.append("pk_no = ? ");
 			buff.append("WHERE ");
 			buff.append("pif_no = ? ");
+			break;
+		case INSERT_PET_IMG:
+			buff.append("INSERT INTO ");
+			buff.append("PETIMAGE(PI_NO,PIF_NO,PI_REALFILE,PI_FILE,PI_DIR,PI_LEN) ");
+			buff.append("VALUES ");
+			buff.append("( ");
+			buff.append("(SELECT NVL(MAX(PI_NO),0)+1 FROM PETIMAGE), ");
+			buff.append("?, ");
+			buff.append("?, ");
+			buff.append("?, ");
+			buff.append("?, ");
+			buff.append("? ");
+			buff.append(") ");
+		    break;
+		case SELECT_PET_IMG_LIST:
+			buff.append("SELECT ");
+		    buff.append("PIF_NO, PI_NO, PI_REALFILE, PI_FILE, PI_DIR, PI_LEN ");
+		    buff.append("FROM ");
+		    buff.append("PETIMAGE ");
+		    buff.append("WHERE ");
+		    buff.append("pif_no = ? ");
+		    buff.append("ORDER BY pi_no ");
+			break;
 		}
 		
 		return buff.toString();

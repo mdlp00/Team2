@@ -11,6 +11,7 @@ import sql.MemberSQL;
 import sql.PetInfoSQL;
 import vo.MemberVo;
 import vo.PetAgeVo;
+import vo.PetImgVo;
 import vo.PetInfoVo;
 import vo.PetKindVo;
 import vo.PetSizeVo;
@@ -26,6 +27,13 @@ import vo.PetSizeVo;
  * 			2019.06.20		PetInfoDAO 클래스 제작		작성자 : 양희준
  * 			2019.06.20		addPetInfo 함수 제작 		작성자 : 양희준
  * 			2019.06.21		idGetPetData 함수 제작 		작성자 : 강찬규
+ *  		2019.06.22		petNoGetPetData 함수 제작 	작성자 : 양희준
+ *  		2019.06.22		getPetAgeList 함수 제작 	작성자 : 양희준
+ *  		2019.06.22		getPetSizeList 함수 제작 	작성자 : 양희준
+ *  		2019.06.22		getPetKindList 함수 제작 	작성자 : 양희준
+ * 			2019.06.22		updatePetInfo 함수 제작 	작성자 : 양희준
+ * 			2019.06.22		insertPetImg 함수 제작 		작성자 : 양희준
+ * 			2019.06.23		
  */
 
 public class PetInfoDAO {
@@ -216,6 +224,7 @@ public class PetInfoDAO {
 		return list;
 	}
 	
+	// 펫정보 수정
 	public int updatePetInfo(PetInfoVo vo) {
 		int cnt = 0;
 		
@@ -238,5 +247,65 @@ public class PetInfoDAO {
 			db.close(con);
 		}
 		return cnt;
+	}
+	
+	// 펫 이미지 추가 함수
+	public int insertPetImg(PetImgVo vo) {
+		int cnt=0;
+		
+		con = db.getCon();
+		String sql = pSQL.getSQL(pSQL.INSERT_PET_IMG);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			pstmt.setInt(1, vo.getPif_no());
+			pstmt.setString(2, vo.getPi_rfile());
+			pstmt.setString(3, vo.getPi_file());
+			pstmt.setString(4, vo.getPi_dir());
+			pstmt.setLong(5, vo.getPi_len());
+			
+			cnt = pstmt.executeUpdate();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return cnt;
+	}
+	
+	// 펫 이미지 조회 함수
+	public ArrayList<PetImgVo> selectPetImg(int p_no) {
+		ArrayList<PetImgVo> list = new ArrayList<PetImgVo>();
+		
+		con = db.getCon();
+		String sql = pSQL.getSQL(pSQL.SELECT_PET_IMG_LIST);
+		pstmt = db.getPSTMT(con, sql);
+		
+		try {
+			pstmt.setInt(1, p_no);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				PetImgVo vo = new PetImgVo();
+				vo.setPi_rfile(rs.getString("PI_REALFILE"));
+				vo.setPi_file(rs.getString("PI_FILE"));
+				vo.setPi_dir(rs.getString("PI_DIR"));
+				vo.setPi_len(rs.getInt("PI_LEN"));
+				vo.setPi_no(rs.getInt("PI_NO"));
+				vo.setPif_no(rs.getInt("PIF_NO"));
+				
+				list.add(vo);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}finally {
+			db.close(rs);
+			db.close(pstmt);
+			db.close(con);
+		}
+		
+		return list;
 	}
 }

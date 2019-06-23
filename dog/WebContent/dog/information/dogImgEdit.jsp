@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>내정보 페이지</title>
+<title>반려견 수정</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
@@ -27,6 +27,7 @@
 	}
 	
 	.leftList{
+		margin-top : 140px;
 		width : 170px;
 	}
 	
@@ -36,105 +37,62 @@
 	
 	.lmargin{
 		float : left;
-		margin-top : 150px;
-		margin-left : 8%;
+		margin-left : 5%;
 		display : inline-block;
 	}
 	
 	.cen{
 		margin-top : 140px;
 		float : left;
-		margin-left : 66px;
-		width : 700px;
-		height : 468px;
+		margin-left : 5%;
+		width : 600px;
+		height : 500px;
 		border : 1px solid gray;
 		display : inline-block;
-		overflow-y : scroll;
 	}
 	
-	.contents_wrap{
-		width : 100%;
-		height : 650px;
-	}
+	.d1{
+		display: inline-block;
+		width:400px ;
+		margin: 10px auto;
+		text-align: center;
 		
-	.pet_list{
-		width : 100%;
-		height : 81px;
 	}
-	
-	.pet_inline{
-		display : inline-block;
-	}
-	
-	.pet_img{
-		height : 100%;
-		width : 85px;
-		background-color : yellow;
-	}
-	
-	.pet_tle{
-		width : 300px;
-		height : 100%;
-		background-color : pink;
-	}
-	
-	.pet_info{
-		margin-top : 15px;
-		width : 100%;
-		height : 35px;
-		background-color : red;
-	}
-	
-	.pet_teb{
-		width : 100%;
-		height : 17px;
-	}
-	
-	.stext{
-		display : inline-block;
+	.dh{
+		width:400px;
+		height:400px;
+		overflow: hidden;
 	}
 </style>
 <script type="text/javascript">
 	var id = '${SID}';
 	$(document).ready(function(){
-		if(!id) {
-			$('#log').text('로그인');
-			$('#log').attr('href', '${pageContext.request.contextPath}/dog/login.c3');
-			$('#nick').css('display', 'none');
-			$('#joining').css('display', 'visible');
-		} else {
-			$('#log').text('로그아웃');
-			$('#log').attr('href', '${pageContext.request.contextPath}/dog/logoutProc.c3');			
-			$('#nick').css('display', 'visible');
-			$('#joining').css('display', 'none');
-		}
-	
-	// 반려견 추가 버튼
-	$('#add').click(function(){
-		$(location).attr('href','${pageContext.request.contextPath}/dog/information/dogJoin.c3');
-	});
-	
-	// 상세보기 버튼
-	
-	// 수정 버튼
-	$('.r2').click(function(){
-		var p_no = $(this).attr('hreflang');
-		$('#p_no').val(p_no);
-		$('#frm').attr('action','${pageContext.request.contextPath}/dog/information/dogInfoEdit.c3');
-		$('#frm').submit();
-	});
-	
-	// 이미지수정 버튼
-	$('.r3').click(function(){
-		var p_no = $(this).attr('hreflang');
-		$('#p_no').val(p_no);
-		$('#frm').attr('action','${pageContext.request.contextPath}/dog/information/dogImgEdit.c3');
-		$('#frm').submit();
-	});
-	
-	// 삭제 버튼
-		
-	});
+			if(!id) {
+				$('#log').text('로그인');
+				$('#log').attr('href', '${pageContext.request.contextPath}/dog/login.c3');
+				$('#nick').css('display', 'none');
+				$('#joining').css('display', 'visible');
+			} else {
+				$('#log').text('로그아웃');
+				$('#log').attr('href', '${pageContext.request.contextPath}/dog/logoutProc.c3');			
+				$('#nick').css('display', 'visible');
+				$('#joining').css('display', 'none');
+			}
+						
+			// 이미지 업로드 버튼
+			$('#upload').click(function(){
+				alert('파일 업로드가 완료되었습니다.');
+				$('#frm').attr('action','${pageContext.request.contextPath}/dog/information/dogImgEditProc.c3');
+			});
+			
+			// 파일
+			var evt = document.getElementById('photo');
+			evt.onchange = function(e){
+				var tmp = URL.createObjectURL(e.target.files[0]);
+				$('#img').attr('src',tmp);
+			};
+			
+		});
 </script>
 </head>
 <body>
@@ -164,7 +122,7 @@
 	<div class="lmargin">
 	   <div class="leftList">
 	   		<div style="border : 1px solid gray; text-align : center;">
-			    <img src="${pageContext.request.contextPath}/img/img_avatar2.png" style="width:100%;" class="w3-round"><br><br>
+			    <img src="../../img/img_avatar2.png" style="width:100%;" class="w3-round"><br><br>
 			    <h4>${SID}</h4>
 	    	</div>
 	  </div>
@@ -177,35 +135,21 @@
 	
 <!-- 가운데 부분 -->
 	<div class="cen">
-		<div class="contents_wrap">
-	
-	<form  id="frm">
-	    <input type="hidden"  name="p_no" id="p_no" value="">
-	</form>		
-<c:forEach var="data" items="${LIST}">
-			<div class="pet_list">
-				
-                <c:if test="${ empty data.main_img }">
-			       <img src="${pageContext.request.contextPath}/img/logo.png" class="w3-left w3-circle w3-margin-right" style="width:80px; height : 100%;">
-			    </c:if>
-			    <c:if test="${ not empty data.main_img }">
-			       <img src="${pageContext.request.contextPath}/${ data.main_img.pi_dir }/${ data.main_img.pi_rfile }" class="w3-left w3-circle w3-margin-right" style="width:80px; height : 100%;">
-			    </c:if>
-			    <span class="w3-margin-right">${data.p_name}</span><br>
-			    (${data.pet_kind},${data.pet_age},${data.pet_size})
-					<div class="pet_teb">
-						<a style= "color: #7fc3c1; display : inline-block;" class="r1" hreflang="${data.p_no}">상세보기</a>
-						<a style= "color: #7fc3c1; display : inline-block;" class="r2" hreflang="${data.p_no}">수정</a>
-						<a style= "color: #7fc3c1; display : inline-block;" class="r3" hreflang="${data.p_no}">이미지편집</a>
-						<a style= "color: #7fc3c1; display : inline-block;" class="r4" hreflang="${data.p_no}">삭제</a>
-					</div>
-
+		<form method="post" id="frm" name="frm" enctype="multipart/form-data">
+		<div class="w3-content w3-margin">
+			<div class="w3-content w3-margin d1">
+				<label for="img">사진을 선택해주세요 </label>
+				<div class="w3-col w3-margin-top w3-margin-bottom w3-border" >
+					<img src="${pageContext.request.contextPath}/img/logo.png" style="width:400px; height:280px;" id="img" />
+				</div>
+				<div class="w3-content">
+					<input type="file" id="photo" name="photo" class="w3-input" />
+					<input type="hidden" name="p_no" value="${p_no}">
+				</div>
 			</div>
-</c:forEach>			
 		</div>
-	</div>
-	<div style="width : 700px; margin : auto;">	
-		<button style="background-color: #fff; border: 1px solid #d0d0d0; color: #7fc3c1; padding: 17px 0px 15px; width: 100%;" id="add">반려견 추가</button>	
+    		<input class="w3-cneter" type="submit" value="이미지 업로드" id="upload" name="upload" style= "background-color: #86d6d4; color: white">
+		</form>
 	</div>
 </body>
 </html>

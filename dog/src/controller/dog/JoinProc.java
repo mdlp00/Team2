@@ -56,8 +56,6 @@ public class JoinProc implements MainController {
 		} else {
 			// 회원 가입 성공시
 			req.setAttribute("isRDR", 1);
-			HttpSession session = req.getSession();
-			session.setAttribute("SID", vo.getMid());
 			view ="./welcome.jsp";
 		}
 		return view;

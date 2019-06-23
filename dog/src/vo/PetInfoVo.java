@@ -1,5 +1,7 @@
 package vo;
 
+import java.util.List;
+
 /**
  * 이 클래스는 펫에 대한 정보를 담는 클래스이다.
  * 
@@ -24,7 +26,25 @@ public class PetInfoVo {
 	private String pet_size;
 	private String pet_kind;
 	
+	PetImgVo main_img;
+	List<PetImgVo> img_list;
 	
+	public List<PetImgVo> getImg_list() {
+		return img_list;
+	}
+	public void setImg_list(List<PetImgVo> img_list) {
+		this.img_list = img_list;
+		
+		for(PetImgVo imgVo: img_list)
+			main_img = imgVo;
+	}
+	
+	public PetImgVo getMain_img() {
+		return main_img;
+	}
+	public void setMain_img(PetImgVo main_img) {
+		this.main_img = main_img;
+	}
 	public int getP_no() {
 		return p_no;
 	}
