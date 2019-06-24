@@ -20,7 +20,7 @@ public class General_1 implements MainController {
 	public String executeC3(HttpServletRequest req, HttpServletResponse resp) {
 		String view = "general_1.jsp";
 		String[] pif_name = req.getParameterValues("pif_name");
-		
+				
 		int len = pif_name.length;
 		ArrayList<String> list = new ArrayList<String>();
 		for(int i = 0; i < len; i++) {

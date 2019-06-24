@@ -29,7 +29,7 @@ public class General_3 implements MainController {
 		String ck2 = req.getParameter("ck2");
 		String ck3 = req.getParameter("ck3");
 		String ck4 = req.getParameter("ck4");
-		
+				
 		String id = (String)req.getSession().getAttribute("SID");
 		MemberDAO mdao = new MemberDAO();
 		PetInfoDAO pdao = new PetInfoDAO();

@@ -36,7 +36,30 @@
 				alert('결제 수단을 선택하세요');
 				return;
 			}
-			
+			if(payment == 'checkCard'){
+				var bank = $('#bank').val();
+				var bpw = $('#bank_pw').val();
+				var no1 = $('#ckno_1').val();
+				var no2 = $('#ckno_2').val();
+				var no3 = $('#ckno_3').val();
+				var no4 = $('#ckno_4').val();
+				if(!bank || !bpw || !no1 || !no2 || !no3 || !no4){
+					alert('빈 칸을 모두 기입해주세요.');
+					return;
+				}	
+			}
+			if(payment == 'creditCard'){
+				var bank = $('#cardSa').val();
+				var bpw = $('#cardSa_pw').val();
+				var no1 = $('#crno_1').val();
+				var no2 = $('#crno_2').val();
+				var no3 = $('#crno_3').val();
+				var no4 = $('#crno_4').val();
+				if(!bank || !bpw || !no1 || !no2 || !no3 || !no4){
+					alert('빈 칸을 모두 기입해주세요.');
+					return;
+				}
+			}
 			$('#pick_day').val('${pick_day}');
 			$('#start_time').val('${start_time}');
 			$('#end_time').val('${end_time}');
@@ -48,7 +71,13 @@
 			
 			$('#frm').submit();
 		});
+		
+		$("input:text[numberOnly]").on("keyup", function() {
+		    $(this).val($(this).val().replace(/[^0-9]/g,""));
+		});
+
 	});
+	
 </script>
 </head>
 <body>
@@ -102,14 +131,49 @@
 				<div style="height: 15px;"></div>
 				<div>
 					<div style="display: inline-block; width: 800px; margin-left: 50px; color: #6f6f6f;">
-						<div class="ppd" style="display: none; height: 150px; border: 1px solid gray;" id="pd1">
-							<p>체크카드 고르는 곳</p>
+						<div class="ppd" style="display: none; height: 200px; border: 1px solid gray;" id="pd1">
+							<h4 style="color: #6ec4c1;">체크카드</h4>
+							<div style="margin: 10px 0px 0px 10px;">
+								<div>
+									<label>은행을 입력하세요 : </label>
+									<input type="text" id="bank" name="bank" style="width: 100px;">
+								</div>
+								<div style="margin: 10px 0px;">
+									<input type="text"		id="ckno_1" name="card_num" style="width: 45px;" numberOnly />
+									<input type="password"	id="ckno_2" name="card_num" style="width: 45px;" numberOnly />
+									<input type="text"		id="ckno_3" name="card_num" style="width: 45px;" numberOnly />
+									<input type="password"	id="ckno_4" name="card_num" style="width: 45px;" numberOnly />
+								</div>
+								<div>
+									<label>결제 비밀번호를 입력하세요 : </label>
+									<input type="password" id="bank_pw" name="bank_pw" style="width: 100px;">
+								</div>
+							</div>
 						</div>
-						<div class="ppd" style="display: none; height: 150px; border: 1px solid gray;" id="pd2">
-							<p>신용카드 고르는 곳</p>
+						<div class="ppd" style="display: none; height: 200px; border: 1px solid gray;" id="pd2">
+							<h4 style="color: #6ec4c1;">신용카드</h4>
+							<div style="margin: 10px 0px 0px 10px;">
+								<div>
+									<label>카드사을 입력하세요 : </label>
+									<input type="text" id="cardSa" name="bank" style="width: 100px;">
+								</div>
+								<div style="margin: 10px 0px;">
+									<input type="text"		id="crno_1" name="card_num" style="width: 45px;" numberOnly />
+									<input type="password"	id="crno_2" name="card_num" style="width: 45px;" numberOnly />
+									<input type="text"		id="crno_3" name="card_num" style="width: 45px;" numberOnly />
+									<input type="password"	id="crno_4" name="card_num" style="width: 45px;" numberOnly />
+								</div>
+								<div>
+									<label>결제 비밀번호를 입력하세요 : </label>
+									<input type="password" id="cardSa_pw" name="bank_pw" style="width: 100px;">
+								</div>
+							</div>
 						</div>
 						<div class="ppd" style="display: none; height: 150px; border: 1px solid gray;" id="pd3">
-							<p>무통장 입금 계좌번호 보여주는 곳</p>
+							<h4 style="color: #6ec4c1;">무통장입금</h4>
+							<span>입금할 계좌 : </span>
+							<span>110-393-919129 / 신한은행 /</span>
+							<span>예금주 : 강찬규</span>
 						</div>
 					</div>
 				</div>
@@ -117,7 +181,7 @@
 				<div style="border: 1px solid #d0d0d0; height: 0.01px;"><p></p></div>
 			</div>
 <c:forEach var="data" items="${LIST}">
-			<input type="hidden" id="pif_name" name="pif_name" value="${data}">
+			<input type="hidden" id="pif_name" name="pif_name" value="${data.p_name}">
 </c:forEach>
 			<input type="hidden" id="pick_day" name="pick_day" >
 			<input type="hidden" id="start_time" name="start_time" >
