@@ -38,6 +38,7 @@
 	
 	#t2, #t3, #t4{
 		display : none;
+		text-align: center;
 	} 
 	
 
@@ -84,7 +85,7 @@
 				$('#t3').css('display','block');
 			}else if(btn == '기타'){
 				$('#t1').css('display','none');
-				$('#t3').css('display','none');
+				$('#t2').css('display','none');
 				$('#t3').css('display','none');
 				$('#t4').css('display','block');				
 			}
@@ -127,7 +128,7 @@
 
 <div class="w3-show-inline-block" >
   <div class="w3-bar">
-    <button class="w3-btn w3-border w3-hover-teal btn1" id="">방문서비스</button>
+    <button class="w3-btn w3-border w3-hover-teal btn1" >방문서비스</button>
     <button class="w3-btn w3-border w3-hover-teal btn1">위탁서비스</button>
     <button class="w3-btn w3-border w3-hover-teal btn1 ">펫시터지원</button>
     <button class="w3-btn w3-border w3-hover-teal btn1">기타</button>
@@ -140,7 +141,7 @@
       <li class="w3-padding-16 qu" >
         <span class="w3-large w3-left">Q. 방문펫시터 예약 방법</span><br>
       </li>
-      <div class="bd">
+      <div class="bd" > 
       	다올 서비스는 펫시터가 고객님의 집으로 찾아가 강아지에 대해 산책,배식,배변정리,투약 등의 케어를 진행해드리는 서비스 입니다!<br>
                  먼저 서비스 이용을 위해서는 회원가입을 진행해주셔야 합니다.<br>
         <br>
@@ -283,23 +284,17 @@
       
       
       <li class="w3-padding-16">
-        <span class="w3-large w3-left qu">Q. 가정집 펫시터를 예약했어요. 준비물은 뭐가 있나요?</span><br>
+        <span class="w3-large w3-left qu">Q. 가정집 펫시터로 활동하고 싶어요</span><br>
       </li> 
         <div class="bd">
-			펫시터 집에 맡겨진 강어지가 맡겨진 기간동안 편안하게 지내가 위해서는<br>
-			'집과 가장 비슷한 환경'을 만들어 주는 것이 좋습니다!<br>
+			펫시터의 집에서 강아지를 돌보는 위탁펫시터로 활동하고 싶으신가요?<br>
+			도그메이트 위탁펫시터는 <br>
 			<br>
-			따라서 펫시터의 집에 강아지를 맡기실 때 강아지가 평소에 이용하는 배변판과 배번패드, 평소에<br>
-			먹던 사료, 강아지 방석 및 침대, 장난감 그리고 주인의 냄새가 베어있는 옷가지 등을 함께 펫시터에게<br>
-			전달해주시는 것이 좋습니다.<br>
+			1) 서울 경기 및 수도권 거주자<br>
+			2)25세 이상 60세 미만으로 최근 5년 이내 반려경험이 있으신 분이면 지원이 가능합니다!<br>
 			<br>
-			강아지 위탁시 준비해주셔야하는 물품은 펫시터의 집에서 사전만남을 진행할실 때 상세하게 안내<br>
-			받으실 수 있습니다.<br>
+			주로 집에서 많은 시간을 보내시는 주부, 프리랜서, 재택근무자에게 추천드립니다!.<br>
 			<br>
-			강아지 위탁시 준비물품 : <br>
-			강아지 배변판 및 배변패드 <br>
-			강아지가 평소에 먹는 사료 및 간식 <br>
-			주인의 냄새가 베어있는 옷<br>
       	</div>
     </ul>
   </div>
