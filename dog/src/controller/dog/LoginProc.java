@@ -1,4 +1,7 @@
 package controller.dog;
+import java.io.IOException;
+import java.io.PrintWriter;
+
 /**
  * @author	강찬규
  * @since	2019.06.18
@@ -31,7 +34,19 @@ public class LoginProc implements MainController {
 			session.setAttribute("SID", sid);
 		} else {
 			// 실패
-			System.out.println("로그인 실패 // 아이디와 비밀번호가 일치하지 않습니다.");
+			try {
+				resp.setContentType("text/html;charset=utf-8");
+				PrintWriter out = resp.getWriter();
+				out.println("<script>");
+				out.println("alert('등록된 정보와 다릅니다. 다시 입력해주세요!!');");
+				out.println("history.go(-1);");
+				out.println("</script>");
+				out.close();
+				return null;
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
 			req.setAttribute("isRDR", 1);
 			view = "login.jsp";
 		}

@@ -63,6 +63,7 @@
 		$('#pw_renew').click(function(){
 			$(location).attr('href', 'passwordRenew.c3');
 		});
+				
 	});
 </script>
 </head>

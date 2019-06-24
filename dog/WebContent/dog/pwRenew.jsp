@@ -59,6 +59,11 @@
 			var sid = $('#id').val();
 			var smail = $('#mail').val();
 			
+			if(!sid || !smail){
+				alert('빈칸을 채워주세요!');
+				return;
+			}
+			
 			$.ajax({
 				url : "./pwrenew.ck",
 				type: "POST",
