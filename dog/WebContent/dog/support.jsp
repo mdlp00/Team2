@@ -2,15 +2,14 @@
     pageEncoding="UTF-8"%>
  <%@page import="java.net.*" %>
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
+<html>    
+<meta charset="UTF-8">         
 <title>자주하는질문</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css">
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.min.js"></script>
-<style type="text/css">
+<style type="text/css">        
 
 	html, body {
 		margin: 0px;
@@ -34,11 +33,11 @@
 	}
 	.bd{
 		/* display : none; */
+	text-align: left;
 	}
 	
 	#t2, #t3, #t4{
 		display : none;
-		text-align: center;
 	} 
 	
 
@@ -85,7 +84,7 @@
 				$('#t3').css('display','block');
 			}else if(btn == '기타'){
 				$('#t1').css('display','none');
-				$('#t2').css('display','none');
+				$('#t3').css('display','none');
 				$('#t3').css('display','none');
 				$('#t4').css('display','block');				
 			}
@@ -128,7 +127,7 @@
 
 <div class="w3-show-inline-block" >
   <div class="w3-bar">
-    <button class="w3-btn w3-border w3-hover-teal btn1" >방문서비스</button>
+    <button class="w3-btn w3-border w3-hover-teal btn1" id="">방문서비스</button>
     <button class="w3-btn w3-border w3-hover-teal btn1">위탁서비스</button>
     <button class="w3-btn w3-border w3-hover-teal btn1 ">펫시터지원</button>
     <button class="w3-btn w3-border w3-hover-teal btn1">기타</button>
@@ -141,7 +140,7 @@
       <li class="w3-padding-16 qu" >
         <span class="w3-large w3-left">Q. 방문펫시터 예약 방법</span><br>
       </li>
-      <div class="bd" > 
+      <div class="bd">
       	다올 서비스는 펫시터가 고객님의 집으로 찾아가 강아지에 대해 산책,배식,배변정리,투약 등의 케어를 진행해드리는 서비스 입니다!<br>
                  먼저 서비스 이용을 위해서는 회원가입을 진행해주셔야 합니다.<br>
         <br>
@@ -173,8 +172,8 @@
       	</div>
       <li class="w3-padding-16 qu">
         <span class="w3-large w3-left">Q. 방문펫시터 당일예약도 가능한가요?</span><br>
-      </li>   
-      	<div class="bd">
+      </li>           
+      	<div class="bd">   
       	펫시터를 고객님의 집으로 부르는 방문 서비스의 경우 펫시터 별로 미리 예약된 돌봄 일정에 따라<br>
       	당일의 이동동선이 정해집니다. 따라서 급하게 예약문의를 주시는 경우 펫시터의 이동동선 및 예약일정<br>
       	여부에 따라 돌봄 기능 및 불가에 대해 안내드리고 있습니다.<br>
@@ -190,7 +189,7 @@
       	현재 수도권 위주로 지역확장을 예정중이오니 서비스 불가 지역이라고 하더라도 미리 방문<br>
       	희망의사를 밝혀주시면 추후 지역확장시 참고하여 서비스 제공 도와드리겠습니다.
       	</div>
-    </ul>
+    </ul>   
   </div> 
 </div>
 
@@ -283,17 +282,19 @@
       </div>
       
       
-      <li class="w3-padding-16">
-        <span class="w3-large w3-left qu">Q. 가정집 펫시터로 활동하고 싶어요</span><br>
+      <li class="w3-padding-16 qu" >
+        <span class="w3-large w3-left ">Q. 도그메이트 방문펫시터 파트너를 모집합니다!</span><br>
       </li> 
-        <div class="bd">
-			펫시터의 집에서 강아지를 돌보는 위탁펫시터로 활동하고 싶으신가요?<br>
-			도그메이트 위탁펫시터는 <br>
+        <div class="bd"><br><br>
+			<h1>도그메이트 펫시터 모집( 방문매니저 급구!)</h1><br>
+			
+			<h2>미래유망직 '펫시터(도그워커)' 를 모집합니다</h2><br>
 			<br>
-			1) 서울 경기 및 수도권 거주자<br>
-			2)25세 이상 60세 미만으로 최근 5년 이내 반려경험이 있으신 분이면 지원이 가능합니다!<br>
+			펫시터란, 바쁜 반려인을 대신해 집에서 반려동물을 돌봐주는 케어서비스 입니다.<br>
+			은퇴걱정없이 펫시터는 이미 선진국에서 미래유망직으로 자리잡고 있습니다.<br>
+			<h5>도그메이트의 펫시터 교육을 통해 함께 성장할 수 있는 파트너를 찾고 있습니다</h5><br>
 			<br>
-			주로 집에서 많은 시간을 보내시는 주부, 프리랜서, 재택근무자에게 추천드립니다!.<br>
+			<img src="../img/mo2.PNG" >
 			<br>
       	</div>
     </ul>
@@ -303,8 +304,8 @@
    <!-- 기타 -->
   <div class=" w3-margin" id="t4">
     <ul class="w3-ul w3-hoverable w3-white">
-      <li class="w3-padding-16" >
-        <span class="w3-large w3-left qu">Q. 강아지 외 다른 반려동물도 밭길 수 있나요?</span><br>
+      <li class="w3-padding-16 qu"  >
+        <span class="w3-large w3-left ">Q. 강아지 외 다른 반려동물도 밭길 수 있나요?</span><br>
       </li>
       <div class="bd">
       	다올에서는 강아지 이외의 동물은 케어가 불가능합니다.<br>
@@ -314,8 +315,8 @@
       </div>
       
       
-      <li class="w3-padding-16">
-        <span class="w3-large w3-left qu">Q. 펫시터 서비스란?</span><br>
+      <li class="w3-padding-16  qu">
+        <span class="w3-large w3-left">Q. 펫시터 서비스란?</span><br>
       </li> 
         <div class="bd">
 			펫시터(Pet Sitter)는 주인이 없을 때 반려동물을 대신 돌봐주는 사람을 말합니다.<br>
@@ -334,8 +335,8 @@
       	</div>
       	
       	
-      <li class="w3-padding-16">
-        <span class="w3-large w3-left qu">Q. 탈퇴 후 동일한 핸드폰 번호로 가입하기</span><br>
+      <li class="w3-padding-16 qu">
+        <span class="w3-large w3-left ">Q. 탈퇴 후 동일한 핸드폰 번호로 가입하기</span><br>
       </li>   
       	<div class="bd">
       	안녕하세요. <br>
