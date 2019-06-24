@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>맡기기 상세페이지</title>
-<link type="text/css" rel="stylesheet" href="../../css/w3.css" />
-<link type="text/css" rel="stylesheet" href="../../css/w3-colors-win8.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/w3-colors-win8.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/dog.css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script type="text/javascript" src="../../js/jquery-3.4.1.min.js"></script>
 <style type="text/css">
@@ -14,38 +15,38 @@
 </style>
 <script type="text/javascript">
 
-function form_btn(n){
-    var sum = document.getElementById('sum');
-    var total = document.getElementById("sum1");
-
-    money = parseInt(sum.value);
-    money1 = parseInt(sum1.value); 
-    money += n;
-    money1 += n;
-    sum.value = money;
-  	sum1.value = money1;
-		
-  	if(money >= 100001){
-			sum.value = 0;
-			sum1.value = 45000;
-       }
-  	
-   	if(money <  0){
-  		sum.value = 0 ; 
-  		sum1.value= 45000;
-  	}
-		
-  	if(money1 < 45000){
-			sum1.value = 45000;
-		}
-}
-function minus() {
-	var minus = document.getElemntById('minus');
-        if (minu < 1) {
-            minus.value -- ;
-			minus.value = 0;
-        }
-}
+	function form_btn(n){
+	    var sum = document.getElementById('sum');
+	    var total = document.getElementById("sum1");
+	
+	    money = parseInt(sum.value);
+	    money1 = parseInt(sum1.value); 
+	    money += n;
+	    money1 += n;
+	    sum.value = money;
+	  	sum1.value = money1;
+			
+	  	if(money >= 100001){
+				sum.value = 0;
+				sum1.value = 45000;
+	       }
+	  	
+	   	if(money <  0){
+	  		sum.value = 0 ; 
+	  		sum1.value= 45000;
+	  	}
+			
+	  	if(money1 < 45000){
+				sum1.value = 45000;
+			}
+	}
+	function minus() {
+		var minus = document.getElemntById('minus');
+	        if (minu < 1) {
+	            minus.value -- ;
+				minus.value = 0;
+	        }
+	}
 	$(function(){
 		$('#ddate').click(function(){
 			$(this).attr('type', 'date');
