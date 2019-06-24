@@ -26,7 +26,26 @@
 		$('#nick').css('display', 'visible');
 		$('#joining').css('display', 'none');
 	}
+		
+	$('#a1').click(function(){
+		$('#a1').attr('href','${pageContext.request.contextPath}/dog/visit.c3');
+	});
+
+	$('#a2').click(function(){
+		$('#a2').attr('href','${pageContext.request.contextPath}/dog/applyText.c3');
+	});
 	
+	$('#a3').click(function(){
+		alert('서비스 준비중입니다.');
+	});
+	
+	$('#a4').click(function(){
+		$('#a4').attr('href','${pageContext.request.contextPath}/dog/visit.c3');
+	});
+	
+	$('#a5').click(function(){
+		$('#a5').attr('href','${pageContext.request.contextPath}/dog/reserve/search.c3');
+	});
 	});
 </script>
 </head>
@@ -60,7 +79,7 @@
 			<span class="w3-xxlarge w3-hide-small" style="color: white;">믿을 수 있는 펫시터가</span><br>
 			<span class="w3-xxlarge w3-hide-small" style="color: white;">대신 돌봐드립니다</span><br>
 			<p class="padding-top-230" >
-			<div class="w3-button w3-padding-large w3-large w3-margin-top w3-blue w3-hover-aqua">펫시터 예약하러 가기</div>
+			<div class="w3-button w3-padding-large w3-large w3-margin-top w3-blue w3-hover-aqua"><a id="a1">펫시터 예약하러 가기</a></div>
 		</div> 
 	</div>
 	
@@ -68,12 +87,16 @@
 	<div class="w3-row w3-center">
 		<div class="w3-col m6 w3-padding w3-margin-top w3-right-align">
 			<div class="w3-button">
+			<a id="a2">
 				<img src="../img/2.PNG">
+			</a>
 			</div>
 		</div> 
 		<div class="w3-col m6 w3-padding w3-margin-top w3-left-align">
 			<div class=" w3-button">
+			<a id="a3">
 				<img src="../img/3.PNG">
+			</a>
 			</div>
 		</div>
 	</div>
@@ -90,7 +113,7 @@
 		    <div class="w3-col m6 w3-left-align" style="padding: 50px 100px;">
 					<h3>펫시터 집으로 부르기</h3>
 					<p>도그메이트 펫시터가 집으로 찾아와 반려동물을 돌봐드려요.<br>#방문펫시터 #도그워커 #배변처리 #밥주기</p>
-				<div class="w3-button w3-black">자세히 알아보기</div>
+				<div class="w3-button w3-black"><a id="a4">자세히 알아보기</a></div>
 			</div>
 		</div>
 	</div>
@@ -99,7 +122,7 @@
 			<div class="w3-col m6 w3-left-align" style="padding: 50px 50px;">
 				<h3>펫시터 집에 맡기기</h3>
 				<p>펫시터의 가정집에서 편안하고 자유롭게 지낼 수있어요.<br>#위탁펫시터 #1:1케어 #실시간사진공유</p>
-				<div class="w3-button w3-black">자세히 알아보기</div>
+				<div class="w3-button w3-black"><a id="a5">자세히 알아보기</a></div>
 			</div>
 			<div class="w3-col m6 w3-left-align">
 				<img class="w3-image w3-round-large" src="../img/5.PNG">
@@ -108,6 +131,7 @@
 	</div>
 	
 	<!-- 맨아래  -->
+<!-- 
 	<div class="w3-row w3-container mt w3-margin-bottom w3-padding-bottom">
 		<div class="w3-row-padding w3-display-container w3-margin-top">
 			<div class="w3-col l3 m6 w3-margin-bottom w3-display-left" style="margin-left: 100px;">
@@ -136,5 +160,6 @@
 			</div>
 		</div>
 	</div>
+ -->
 </body>
 </html>
